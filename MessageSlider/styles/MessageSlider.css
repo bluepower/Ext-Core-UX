@@ -66,6 +66,6 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,
     z-index: 10;
 }
 
-#example {
+#intro-example {
     background: url(../images/bg-example-intro.gif) no-repeat 0 0;
 }

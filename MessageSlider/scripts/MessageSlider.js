@@ -32,7 +32,7 @@ Ext.ns('Ext.ux');
  * @demo http://cz9908.com/showcase/?item=message-slider&p=1
  * @version v0.5
  * @create 2009-06-20
- * @update 2009-06-25
+ * @update 2010-02-14
  * 
  * // Example object item:
  * {
@@ -66,6 +66,21 @@ Ext.ux.MessageSlider = Ext.extend(Ext.util.Observable, {
      * @cfg {Number} intervalTime The interval time seconds (recommend number greater than 1).
      */
     intervalTime : 4,
+
+    /**
+     * @cfg {String} msgContainerCls The css class of message slider container element.
+     */
+    msgContainerCls : 'ux-msg-slider-container',
+
+    /**
+     * @cfg {String} msgInnerCls The css class of message slider inner element.
+     */
+    msgInnerCls : 'ux-msg-slider-inner',
+
+    /**
+     * @cfg {String} msgOverCls The css class when hover message slider
+     */
+    msgOverCls : 'ux-msg-slider-over',
 
     //------------------------------------------------------------
     // class constructor
@@ -120,12 +135,12 @@ Ext.ux.MessageSlider = Ext.extend(Ext.util.Observable, {
         // message container
         this.containerEl = this.el.createChild({
             tag : 'div',
-            cls : 'ux-msg-slider-container'
+            cls : this.msgContainerCls
         });
         // inner message element
         this.innerEl = this.containerEl.createChild({
             tag : 'div',
-            cls : 'ux-msg-slider-inner'
+            cls : this.msgInnerCls
         });
 
         // message link element
@@ -143,11 +158,13 @@ Ext.ux.MessageSlider = Ext.extend(Ext.util.Observable, {
      * @private
      */
     initEvents : function() {
+        var hoverCls = this.msgOverCls;
+        
         // set hover action, equal to addClassOnOver
         this.innerEl.hover(function() {
-            Ext.fly(this).addClass('ux-msg-slider-over');
+            Ext.fly(this).addClass(hoverCls);
         }, function() {
-            Ext.fly(this).removeClass('ux-msg-slider-over');
+            Ext.fly(this).removeClass(hoverCls);
         });
 
         this.containerEl.on('click', function(ev, t) {
@@ -165,7 +182,7 @@ Ext.ux.MessageSlider = Ext.extend(Ext.util.Observable, {
         // set interval action
         window.setInterval(function() {
             // if hover, do nothing
-            if(!this.innerEl.hasClass('ux-msg-slider-over')) {
+            if(!this.innerEl.hasClass(hoverCls)) {
                 this.displayIndex = this.items[this.displayIndex + 1] ? this.displayIndex + 1 : 0;
                 this.showMsg(this.displayIndex);
             }
@@ -178,7 +195,7 @@ Ext.ux.MessageSlider = Ext.extend(Ext.util.Observable, {
      */
     showMsg : function(index) {
         // if hover, do nothing
-        if(!this.innerEl.hasClass('ux-msg-slider-over')) {
+        if(!this.innerEl.hasClass(this.msgOverCls)) {
             this.displayIndex = index;
             this.activeItem = this.items[index];
             if(this.containerEl.isVisible()) {
