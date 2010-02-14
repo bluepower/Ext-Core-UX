@@ -1,7 +1,31 @@
 /* styles for CSS Reset */
 body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote{margin:0;padding:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}ol,ul {list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;}
 
-/* styles for MessageSlider */
+/* styles for examples */
+#example-section {
+    position: absolute;
+    top: 15px;
+    left: 50px;
+    width: 902px;
+    height: 660px;
+    background: url(../images/bg-example-container.png) no-repeat 0 0;
+    z-index: 1;
+}
+
+#show-example {
+    position: absolute;
+    top: 55px;
+    left: 161px;
+    width: 780px;
+    height: 610px;
+    border: 0;
+    z-index: 10;
+}
+
+#intro-example {
+    background: url(../images/bg-example-intro.gif) no-repeat 0 0;
+}
+
 #msg-slider-section {
     position: absolute;
     top: 25px;
@@ -11,6 +35,7 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,
     z-index: 2;
 }
 
+/* styles for MessageSlider */
 .ux-msg-slider-container {
     width: 242px;
     height: 30px;
@@ -43,29 +68,4 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,
 
 .ux-msg-slider-over {
     text-align: center;
-}
-
-/* styles for examples */
-#example-section {
-    position: absolute;
-    top: 15px;
-    left: 50px;
-    width: 902px;
-    height: 660px;
-    background: url(../images/bg-example-container.png) no-repeat 0 0;
-    z-index: 1;
-}
-
-#show-example {
-    position: absolute;
-    top: 55px;
-    left: 161px;
-    width: 780px;
-    height: 610px;
-    border: 0;
-    z-index: 10;
-}
-
-#intro-example {
-    background: url(../images/bg-example-intro.gif) no-repeat 0 0;
 }
