@@ -15,7 +15,7 @@ body {
 
 #errorlist-section .hd {
     height: 30px;
-    background: url(../images/bg-example.gif) no-repeat 0 0;
+    background: url(../images/bg-example-container.gif) no-repeat 0 0;
 }
 
 #errorlist-section .bd {
@@ -56,7 +56,7 @@ body {
 
 #errorlist-section .ft {
     height: 10px;
-    background: url(../images/bg-example.gif) no-repeat 0 bottom;
+    background: url(../images/bg-example-container.gif) no-repeat 0 bottom;
 }
 
 /* styles for ErrorList */
