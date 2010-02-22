@@ -99,25 +99,59 @@ Ext.ux.ListPreview = Ext.extend(Ext.util.Observable, {
     initMarkup : function() {
         this.containerEl = this.el.createChild({
             tag : 'div',
-            cls : 'ux-list-preview-container'
+            cls : 'ux-list-preview-container',
+			children : [{
+				tag : 'div',
+				cls : 'ux-list-preview-hd'
+			}, {
+				tag : 'div',
+				cls : 'ux-list-preview-bd'			
+			}, {
+				tag : 'div',
+				cls : 'ux-list-preview-ft'				
+			}]
         });
 
+		this.bodyEl = this.containerEl.child('.ux-list-preview-bd');
+		this.footerEl = this.containerEl.child('.ux-list-preview-ft');
+
         var sId = this.el.id || Ext.id();
+		var arr = [];
 
         // build listpreview menu items
         Ext.each(this.items, function(item, index) {
-            this.containerEl.createChild({
-                //tag : 'li',
-                cls : item.cls || '',
+			Ext.each(item.children, function(subItem, subIndex) {
+				arr.push({
+					tag: 'li',
+					children: [{
+						tag : 'a',
+						id : sId + '-' + index + '-' + subIndex,
+						cls : 'ux-list-preview-item',
+						href : subItem.url || '#',
+						title : subItem.tip || subItem.title,
+						html : subItem.title
+					}]
+				});				
+			});
+
+            this.footerEl.createChild({
+                tag : 'div',
+                cls : 'ux-list-preview-category',
                 children : [{
-                    tag : 'a',
-                    id : sId + '-' + index,
-                    cls : 'ux-list-preview-item',
-                    href : item.url || '#',
-                    title : item.tip || item.title,
+                    tag : 'h3',
+                    //id : sId + '-' + index,
+                    //cls : 'ux-list-preview-item',
+                    //href : item.url || '#',
+                    //title : item.tip || item.title,
                     html : item.title
-                }]
+					//children : arr
+                }, {
+					tag : 'ul',
+					children : arr
+				}]
             });
+
+			arr = [];
         }, this);
 
         this.menuItems = this.containerEl.select('a.ux-list-preview-item');
@@ -127,14 +161,14 @@ Ext.ux.ListPreview = Ext.extend(Ext.util.Observable, {
      * @private
      */
     initEvents : function() {
-        this.menuItems.on('click', function(ev, t) {
-            if(t.href.slice(-1) == '#') {
-                ev.preventDefault();
-            }
+        //this.menuItems.on('click', function(ev, t) {
+            //if(t.href.slice(-1) == '#') {
+                //ev.preventDefault();
+            //}
             //this.setCurrItem(Ext.get(t), true);
             //var index = parseInt(t.id.split('-').pop(), 10);
             //this.fireEvent('change', t, index);
-        }, this);
+        //}, this);
     }
 
 });  // end of Ext.ux.ListPreview
