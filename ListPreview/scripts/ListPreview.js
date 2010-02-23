@@ -32,7 +32,7 @@ Ext.ns('Ext.ux');
  * @demo http://cz9908.com/showcase/?item=listpreview&p=1
  * @version v0.1
  * @create 2010-02-21
- * @update 2010-02-22
+ * @update 2010-02-23
  */
 Ext.ux.ListPreview = Ext.extend(Ext.util.Observable, {
     //------------------------------------------------------------
@@ -61,7 +61,7 @@ Ext.ux.ListPreview = Ext.extend(Ext.util.Observable, {
         Ext.ux.ListPreview.superclass.constructor.call(this);
 
         // add custom event
-        this.addEvents(
+        //this.addEvents(
 			/**
 		     * @event change
 			 * Fires when listpreview item is clicked
@@ -69,8 +69,8 @@ Ext.ux.ListPreview = Ext.extend(Ext.util.Observable, {
 			 * @param {Object} activeItem
 			 * @param {Number} index
 			 */
-			'change'
-		);
+			//'change'
+		//);
 
         // initialize
 		this.init();
@@ -97,6 +97,9 @@ Ext.ux.ListPreview = Ext.extend(Ext.util.Observable, {
      * @private
      */
     initMarkup : function() {
+		var arr = [],
+            sId = this.el.id || Ext.id();
+        
         this.containerEl = this.el.createChild({
             tag : 'div',
             cls : 'ux-list-preview-container',
@@ -115,8 +118,41 @@ Ext.ux.ListPreview = Ext.extend(Ext.util.Observable, {
 		this.bodyEl = this.containerEl.child('.ux-list-preview-bd');
 		this.footerEl = this.containerEl.child('.ux-list-preview-ft');
 
-        var sId = this.el.id || Ext.id();
-		var arr = [];
+        this.previewWrapEl = this.bodyEl.createChild({
+            tag : 'div',
+            cls : 'ux-list-preview-wrap'
+        });
+
+        this.previewMaskEl = this.previewWrapEl.createChild({
+            tag : 'div',
+            cls : 'ux-list-preview-mask'
+        });
+
+        this.previewBoxEl = this.previewWrapEl.createChild({
+            tag : 'div',
+            cls : 'ux-list-preview-box-wrap',
+            children : [{
+                tag : 'div',
+                cls : 'ux-list-preview-box'
+            }]
+        });
+
+        this.previewBtnEl = this.previewWrapEl.createChild({
+            tag : 'div',
+            cls : 'ux-list-preview-btn'
+        });
+        this.prevBtnEl = this.previewBtnEl.createChild({
+            tag : 'a',
+            cls : 'ux-list-preview-btn-prev',
+            href : '#',
+            html : '&lt;'
+        });
+        this.nextBtnEl = this.previewBtnEl.createChild({
+            tag : 'a',
+            cls : 'ux-list-preview-btn-next',
+            href : '#',
+            html : '&gt;'
+        });        
 
         // build listpreview menu items
         Ext.each(this.items, function(item, index) {
@@ -126,7 +162,7 @@ Ext.ux.ListPreview = Ext.extend(Ext.util.Observable, {
 					children: [{
 						tag : 'a',
 						id : sId + '-' + index + '-' + subIndex,
-						cls : 'ux-list-preview-item',
+						cls : 'ux-list-preview-item' + (subItem.cls == 'current' ? ' ux-list-preview-active' : ''),
 						href : subItem.url || '#',
 						title : subItem.tip || subItem.title,
 						html : subItem.title
@@ -139,12 +175,7 @@ Ext.ux.ListPreview = Ext.extend(Ext.util.Observable, {
                 cls : 'ux-list-preview-category',
                 children : [{
                     tag : 'h3',
-                    //id : sId + '-' + index,
-                    //cls : 'ux-list-preview-item',
-                    //href : item.url || '#',
-                    //title : item.tip || item.title,
                     html : item.title
-					//children : arr
                 }, {
 					tag : 'ul',
 					children : arr
@@ -154,21 +185,19 @@ Ext.ux.ListPreview = Ext.extend(Ext.util.Observable, {
 			arr = [];
         }, this);
 
-        this.menuItems = this.containerEl.select('a.ux-list-preview-item');
+        this.menuItems = this.footerEl.select('a.ux-list-preview-item');
     },
     
     /**
      * @private
      */
     initEvents : function() {
-        //this.menuItems.on('click', function(ev, t) {
-            //if(t.href.slice(-1) == '#') {
-                //ev.preventDefault();
-            //}
-            //this.setCurrItem(Ext.get(t), true);
-            //var index = parseInt(t.id.split('-').pop(), 10);
-            //this.fireEvent('change', t, index);
-        //}, this);
+        this.menuItems.on('click', function(ev, t) {
+            ev.preventDefault();
+            this.menuItems.removeClass('ux-list-preview-active');
+            Ext.fly(t).addClass('ux-list-preview-active');
+            //@TODO
+        }, this);
     }
 
 });  // end of Ext.ux.ListPreview
