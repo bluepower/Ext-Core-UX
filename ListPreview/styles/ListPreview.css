@@ -59,6 +59,56 @@ body {
     _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="images/bg-example-preview.png", sizingMethod="crop");
 }
 
+.ux-list-preview-box-content {
+    padding: 10px 20px 10px 37px;
+    text-align: left;
+}
+.ux-list-preview-box-content h3 {
+    height: 32px;
+    line-height: 32px;
+    font-weight: bold;
+    font-size: 14px;
+}
+.ux-list-preview-box-content .hd {
+    margin-top: 5px;
+    padding: 1px;
+    width: 366px;
+    height: 218px;
+    border: 2px solid #96C3DF;
+    cursor: pointer;
+    overflow: hidden;
+}
+.ux-list-preview-box-content .bd {
+    margin-top: 8px;
+}
+.ux-list-preview-box-content .bd p {
+    margin-bottom: 8px;
+    line-height: 19px;
+    color: #555;
+    font-size: 12px;
+}
+.ux-list-preview-box-content .ft {
+    margin: 8px 0;
+}
+.ux-list-preview-box-content .ft a {
+    float: left;
+    display: block;
+    padding-left: 26px;
+    height: 24px;
+    background: url(../images/bg-btn-item.gif) no-repeat left top;
+    color: #fff;
+    text-decoration: none;
+    font: normal 12px tahoma,helvetica,arial,sans-serif;
+}
+.ux-list-preview-box-content .ft a span {
+    float: left;
+    padding-right: 5px;
+    height: 24px;
+    line-height: 24px;
+    background: url(../images/bg-btn-item.gif) no-repeat right top;
+    cursor: pointer;
+}
+
 .ux-list-preview-btn {
     position: absolute;
     left: 440px;
@@ -70,7 +120,7 @@ body {
     height: 28px;
     overflow: hidden;
     text-indent: -100px;
-    background: url(../images/btn-sprite.png) no-repeat 0 0;
+    background: url(../images/bg-btn-sprite.gif) no-repeat 0 0;
 }
 .ux-list-preview-btn a.ux-list-preview-btn-prev {
     background-position: -52px 0;
@@ -93,13 +143,16 @@ body {
     text-align: left;
     background: url(../images/bg-item-text.gif) no-repeat 0 center;
 }
+
 .ux-list-preview-category h3 {
     padding: 22px 0 6px 0;
     color: #fff;
     font: normal 22px "微软雅黑", "黑体", Arial, Helvetica, sans-serif;
 }
+
 .ux-list-preview-category a.ux-list-preview-item {
     display: block;
+    margin-top: 1px;
     padding-left: 20px;
     height: 20px;
     line-height: 20px;
@@ -108,10 +161,12 @@ body {
     background: url(../images/bg-menu-item.gif) no-repeat 0 0;
     font-size: 12px;
 }
+
 .ux-list-preview-category a.ux-list-preview-item:hover {
     background-position: 0 -22px;
 }
+
 .ux-list-preview-category a.ux-list-preview-active,
 .ux-list-preview-category a.ux-list-preview-active:hover {
-    background-position: 0 -44px;
+    background-position: 0 -43px;
 }

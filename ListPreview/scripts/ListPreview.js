@@ -30,9 +30,9 @@ Ext.ns('Ext.ux');
  * @extends-ext Ext.util.Observable
  * @author Niko Ni (bluepspower@163.com)
  * @demo http://cz9908.com/showcase/?item=listpreview&p=1
- * @version v0.1
+ * @version v0.2
  * @create 2010-02-21
- * @update 2010-02-23
+ * @update 2010-02-25
  */
 Ext.ux.ListPreview = Ext.extend(Ext.util.Observable, {
     //------------------------------------------------------------
@@ -85,6 +85,8 @@ Ext.ux.ListPreview = Ext.extend(Ext.util.Observable, {
     init : function() {
 		// properties
         this.el = Ext.get(this.renderTo);
+        this.elId = this.el.id || Ext.id();
+        this.displayIndex = [0, 0];
 
 		// init markup
         this.initMarkup();
@@ -97,8 +99,7 @@ Ext.ux.ListPreview = Ext.extend(Ext.util.Observable, {
      * @private
      */
     initMarkup : function() {
-		var arr = [],
-            sId = this.el.id || Ext.id();
+		var arr = [];
         
         this.containerEl = this.el.createChild({
             tag : 'div',
@@ -127,20 +128,27 @@ Ext.ux.ListPreview = Ext.extend(Ext.util.Observable, {
             tag : 'div',
             cls : 'ux-list-preview-mask'
         });
+        this.previewMaskStyle = {
+            left : this.previewMaskEl.getLeft(),
+            top : this.previewMaskEl.getTop(),
+            width : this.previewMaskEl.getWidth(),
+            height: this.previewMaskEl.getHeight()
+        };
+        this.previewMaskEl.hide();
 
-        this.previewBoxEl = this.previewWrapEl.createChild({
+        this.previewBoxWrapEl = this.previewWrapEl.createChild({
             tag : 'div',
-            cls : 'ux-list-preview-box-wrap',
-            children : [{
-                tag : 'div',
-                cls : 'ux-list-preview-box'
-            }]
+            cls : 'ux-list-preview-box-wrap'
+        }).hide();
+        this.previewBoxEl = this.previewBoxWrapEl.createChild({
+            tag : 'div',
+            cls : 'ux-list-preview-box'
         });
 
         this.previewBtnEl = this.previewWrapEl.createChild({
             tag : 'div',
             cls : 'ux-list-preview-btn'
-        });
+        }).hide();
         this.prevBtnEl = this.previewBtnEl.createChild({
             tag : 'a',
             cls : 'ux-list-preview-btn-prev',
@@ -157,18 +165,25 @@ Ext.ux.ListPreview = Ext.extend(Ext.util.Observable, {
         // build listpreview menu items
         Ext.each(this.items, function(item, index) {
 			Ext.each(item.children, function(subItem, subIndex) {
+                var activeCls = '';
+                if(subItem.cls && subItem.cls.toLowerCase() == 'current') {
+                    this.displayIndex = [index, subIndex];
+                    activeCls = ' ux-list-preview-active';
+                }
+
 				arr.push({
 					tag: 'li',
 					children: [{
 						tag : 'a',
-						id : sId + '-' + index + '-' + subIndex,
-						cls : 'ux-list-preview-item' + (subItem.cls == 'current' ? ' ux-list-preview-active' : ''),
+						id : this.elId + '-' + index + '-' + subIndex,
+						cls : 'ux-list-preview-item' + activeCls,
+                        //cls : 'ux-list-preview-item',
 						href : subItem.url || '#',
 						title : subItem.tip || subItem.title,
 						html : subItem.title
 					}]
-				});				
-			});
+				});
+			}, this);
 
             this.footerEl.createChild({
                 tag : 'div',
@@ -186,18 +201,144 @@ Ext.ux.ListPreview = Ext.extend(Ext.util.Observable, {
         }, this);
 
         this.menuItems = this.footerEl.select('a.ux-list-preview-item');
+
+        // preview box content template
+        this.contentTemplate = new Ext.Template([
+            '<div class="ux-list-preview-box-content">',
+                '<h3>{title}</h3>',
+                '<div class="hd"><img src="{imageUrl}" alt="{title}" title="{title}" /></div>',
+                '<div class="bd">{content}</div>',
+                '<div class="ft"><a href="#"><span>View Video</span></a></div>',
+            '</div>'
+        ]);
     },
     
     /**
      * @private
      */
     initEvents : function() {
+        this.zoomIn();
+        this.previewBtnEl.fadeIn({
+            duration: 1.5
+        });
+
         this.menuItems.on('click', function(ev, t) {
             ev.preventDefault();
             this.menuItems.removeClass('ux-list-preview-active');
-            Ext.fly(t).addClass('ux-list-preview-active');
-            //@TODO
+            Ext.fly(t).addClass('ux-list-preview-active').blur();
+
+            this.previewMaskEl.hide();
+            this.previewBoxEl.hide();
+
+            // set current item index
+            var a = t.id.split('-');
+            this.displayIndex = [a[a.length - 2], a[a.length - 1]];
+
+            this.zoomIn();
         }, this);
+
+        this.prevBtnEl.on('click', function(ev, t) {
+            ev.preventDefault();
+            this.slide(-1);
+            this.prevBtnEl.blur();
+        }, this);
+
+        this.nextBtnEl.on('click', function(ev, t) {
+            ev.preventDefault();
+            this.slide(1);
+            this.nextBtnEl.blur();
+        }, this);        
+    },
+
+    /**
+     * @private
+     */
+    zoomIn : function() {
+        this.previewMaskEl.show();
+        this.previewMaskEl.setStyle({
+            left : '7px',
+            top : '285px',
+            width: '1px',
+            height: '1px'
+        });
+        this.previewMaskEl.shift({
+            x : this.previewMaskStyle.left,
+            y : this.previewMaskStyle.top,
+            width : this.previewMaskStyle.width,
+            height : this.previewMaskStyle.height,
+            duration : 0.5,
+            callback : this.showCurrItem,
+            scope : this
+        });
+    },
+
+    /**
+     * @private
+     */
+    slide : function(step) {
+        var a = this.displayIndex,
+            index = a[0],
+            subIndex = a[1];
+        
+        if(step == 1) {
+            subIndex++;
+            if(this.items[index]) {
+                if(subIndex > this.items[index].children.length - 1) {
+                    index++;
+                    if(index > this.items.length - 1) {
+                        index = 0;
+                    }
+                    subIndex = 0;
+                }
+            } else {
+                index = 0;
+                subIndex = 0;
+            }
+        } else {
+            subIndex--;
+            if(subIndex < 0) {
+                index--;
+                if(index < 0) {
+                    index = this.items.length - 1;
+                }
+                subIndex = this.items[index].children.length - 1;
+            }
+        }
+
+        this.displayIndex = [index, subIndex];
+        
+        this.previewMaskEl.hide();
+        this.previewBoxEl.hide();
+
+        this.zoomIn();
+
+        this.menuItems.removeClass('ux-list-preview-active');
+        Ext.fly(this.elId + '-' + index + '-' + subIndex).addClass('ux-list-preview-active');
+    },
+
+    /**
+     * @private
+     */
+    showCurrItem : function() {
+        var arr = this.displayIndex,
+            index = arr[0],
+            subIndex = arr[1],
+            item = this.items[index].children[subIndex];
+
+        if(!this.footerEl.child('a.ux-list-preview-active')) {
+            Ext.fly(this.elId + '-' + index + '-' + subIndex).addClass('ux-list-preview-active');
+        }        
+        
+        if(item) {
+            this.previewBoxEl.update('');
+            this.contentTemplate.append(this.previewBoxEl, {
+                title: item.title,
+                imageUrl: item.imageUrl,
+                content: item.content
+            });
+
+            this.previewBoxEl.fadeIn();
+        }
     }
 
 });  // end of Ext.ux.ListPreview
