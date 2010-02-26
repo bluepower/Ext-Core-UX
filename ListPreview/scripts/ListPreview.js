@@ -206,9 +206,9 @@ Ext.ux.ListPreview = Ext.extend(Ext.util.Observable, {
         this.contentTemplate = new Ext.Template([
             '<div class="ux-list-preview-box-content">',
                 '<h3>{title}</h3>',
-                '<div class="hd"><img src="{imageUrl}" alt="{title}" title="{title}" /></div>',
+                '<div class="hd"><a href="{url}" target="_blank"><img src="{imageUrl}" alt="{title}" title="{title}" /></a></div>',
                 '<div class="bd">{content}</div>',
-                '<div class="ft"><a href="#"><span>View Video</span></a></div>',
+                '<div class="ft"><a href="{url}" title="Learn More" target="_blank"><span>Learn More</span></a></div>',
             '</div>'
         ]);
     },
@@ -334,7 +334,8 @@ Ext.ux.ListPreview = Ext.extend(Ext.util.Observable, {
             this.contentTemplate.append(this.previewBoxEl, {
                 title: item.title,
                 imageUrl: item.imageUrl,
-                content: item.content
+                content: item.content,
+                url: item.url
             });
 
             this.previewBoxEl.fadeIn();

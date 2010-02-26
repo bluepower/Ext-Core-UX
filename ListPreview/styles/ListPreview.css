@@ -4,6 +4,7 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,
 /* styles for examples */
 body {
     background: #d1d3d5 url(../images/bg-example-top.png) repeat-x top;
+    font-family: verdana,geneva,lucida,'lucida grande',arial,helvetica,sans-serif;
 }
 
 /* styles for ListPreview */
@@ -54,9 +55,9 @@ body {
 .ux-list-preview-box {
     width: 425px;
     height: 394px;
-    background: url(../images/bg-example-preview.png);
+    background: url(../images/bg-example-preview.png) no-repeat 0 0;
     _background: none;
-    _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="images/bg-example-preview.png", sizingMethod="crop");
+    _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="../images/bg-example-preview.png", sizingMethod="crop");
 }
 
 .ux-list-preview-box-content {
@@ -147,19 +148,18 @@ body {
 .ux-list-preview-category h3 {
     padding: 22px 0 6px 0;
     color: #fff;
-    font: normal 22px "微软雅黑", "黑体", Arial, Helvetica, sans-serif;
+    font: normal 20px verdana,arial,sans-serif;
 }
 
 .ux-list-preview-category a.ux-list-preview-item {
     display: block;
     margin-top: 1px;
-    padding-left: 20px;
-    height: 20px;
-    line-height: 20px;
+    padding: 2px 0 0 20px;
+    height: 18px;
     color: #fff;
     text-decoration: none;
     background: url(../images/bg-menu-item.gif) no-repeat 0 0;
-    font-size: 12px;
+    font-size: 11px;
 }
 
 .ux-list-preview-category a.ux-list-preview-item:hover {
