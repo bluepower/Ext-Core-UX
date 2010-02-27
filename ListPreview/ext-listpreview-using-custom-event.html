@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Ext ListPreview by Niko Ni</title>
+  <link type="text/css" rel="stylesheet" href="styles/ListPreview.css" />
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/ext-core/3.1.0/ext-core.js"></script>
+  <script type="text/javascript" src="scripts/ListPreview.js"></script>
+
+  <script type="text/javascript">
+  // <![CDATA[
+        Ext.onReady(function() {
+
+            var lp = new Ext.ux.ListPreview({
+                renderTo : 'list-preview-section',
+                items : [{
+					title: 'Ext Core',
+					children: [{
+						title: 'Cross-browser lightweight JS library',
+						imageUrl: 'images/img-0-0.jpg',
+						content: '<p>Ext Core is a cross-browser JavaScript library for building dynamic web pages. Ext Core supports all major web browsers including: IE6+, FF1.5+, Safari3+, Opera 9.</p>'
+					}, {
+						title: '25KB minified and MIT licensed',
+						imageUrl: 'images/img-0-1.jpg',
+						content: '<p>Ext Core Overview: High performance, lightweight, clear and maintainable code, an intuitive easy to use API, MIT Open Source licensed.</p>'
+					}]
+				}, {
+					title: 'Ext Direct',
+					children: [{
+						title: 'Call server-side methods directly',
+						imageUrl: 'images/img-1-0.jpg',
+						content: '<p>Ext Direct streamlines communication between your Ext application and your server by allowing you to call server-side methods on the client-side.</p>'
+					}, {
+						title: 'Eliminate code and boost productivity',
+						imageUrl: 'images/img-1-1.jpg',
+						content: '<p>Ext Direct eliminates common boiler plate code and improves developer productivity.</p>'
+					}, {
+						title: 'Language agnostic to remote server-side',
+						imageUrl: 'images/img-1-2.jpg',
+						content: '<p>Ext Direct allows for seamless communication between the client-side of an Ext application and any server-side platform.</p>'
+					}]
+				}, {
+					title: 'Ext Designer',
+					children: [{
+						title: 'Easily assemble UI with drag and drop',
+						imageUrl: 'images/img-2-0.jpg',
+						content: '<p>Select, inspect and configure components with the ease of a native app. Don’t guess with code—get instant gratification.</p>'
+					}, {
+						title: 'Quickly integrate data stores',
+						imageUrl: 'images/img-2-1.jpg',
+						content: '<p>Quickly and easily integrate data stores into your interface, whether you’re using JSON, XML, or a custom data source.</p>'
+					}, {
+						title: 'Fully compatible with widgets of Ext JS',
+						imageUrl: 'images/img-2-2.jpg',
+						content: '<p>Fully compatible with widgets and layouts of Ext JS. Undo/redo support, code generation, save to Toolbox.</p>'
+					}]
+				}]
+            });
+
+            lp.on('change', function(obj, index) {
+                /*
+                // view debug info in firebug if you have turned on firebug console
+                if(typeof console != 'undefined') {
+                    //console.log(obj);
+                    //console.log(index);
+                }
+                */
+
+                // your scripts
+                switch(index) {
+					case '0-0':
+						window.open('http://www.extjs.com/products/extcore', '_blank');
+						break;
+                    case '0-1':
+                        window.open('http://www.extjs.com/products/extcore/docs/', '_blank');
+                        break;
+                    case '1-0':
+                        window.open('http://www.extjs.com/products/direct/', '_blank');
+                        break;
+                    case '1-1':
+                        window.open('http://www.extjs.com/products/direct/', '_blank');
+                        break;
+                    case '1-2':
+                        window.open('http://www.extjs.com/products/extjs/direct.php', '_blank');
+                        break;
+                    case '2-0':
+                        window.open('http://www.extjs.com/blog/2009/10/08/ext-js-designer-preview/', '_blank');
+                        break;
+                    case '2-1':
+                        window.open('http://www.extjs.com/products/designer/', '_blank');
+                        break;
+                    case '2-2':
+                        window.open('http://www.extjs.com/api/xds/screencasts/designer.html', '_blank');
+                        break;
+                }
+            });
+
+        });
+  // ]]>
+  </script>
+
+</head>
+
+<body>
+
+  <div id="list-preview-section"></div>
+
+</body>
+</html>

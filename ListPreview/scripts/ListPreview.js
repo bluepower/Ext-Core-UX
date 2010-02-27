@@ -30,9 +30,9 @@ Ext.ns('Ext.ux');
  * @extends-ext Ext.util.Observable
  * @author Niko Ni (bluepspower@163.com)
  * @demo http://cz9908.com/showcase/?item=listpreview&p=1
- * @version v0.2
+ * @version v0.3
  * @create 2010-02-21
- * @update 2010-02-25
+ * @update 2010-02-27
  */
 Ext.ux.ListPreview = Ext.extend(Ext.util.Observable, {
     //------------------------------------------------------------
@@ -61,7 +61,7 @@ Ext.ux.ListPreview = Ext.extend(Ext.util.Observable, {
         Ext.ux.ListPreview.superclass.constructor.call(this);
 
         // add custom event
-        //this.addEvents(
+        this.addEvents(
 			/**
 		     * @event change
 			 * Fires when listpreview item is clicked
@@ -69,8 +69,8 @@ Ext.ux.ListPreview = Ext.extend(Ext.util.Observable, {
 			 * @param {Object} activeItem
 			 * @param {Number} index
 			 */
-			//'change'
-		//);
+			'change'
+		);
 
         // initialize
 		this.init();
@@ -177,7 +177,6 @@ Ext.ux.ListPreview = Ext.extend(Ext.util.Observable, {
 						tag : 'a',
 						id : this.elId + '-' + index + '-' + subIndex,
 						cls : 'ux-list-preview-item' + activeCls,
-                        //cls : 'ux-list-preview-item',
 						href : subItem.url || '#',
 						title : subItem.tip || subItem.title,
 						html : subItem.title
@@ -206,9 +205,9 @@ Ext.ux.ListPreview = Ext.extend(Ext.util.Observable, {
         this.contentTemplate = new Ext.Template([
             '<div class="ux-list-preview-box-content">',
                 '<h3>{title}</h3>',
-                '<div class="hd"><a href="{url}" target="_blank"><img src="{imageUrl}" alt="{title}" title="{title}" /></a></div>',
-                '<div class="bd">{content}</div>',
-                '<div class="ft"><a href="{url}" title="Learn More" target="_blank"><span>Learn More</span></a></div>',
+                '<div class="hd"><a href="{url}" target="{target}"><img src="{imageUrl}" alt="{title}" title="{title}" /></a></div>',
+                '<div class="bd">{description}</div>',
+                '<div class="ft"><a href="{url}" title="Learn More" target="{target}"><span>Learn More</span></a></div>',
             '</div>'
         ]);
     },
@@ -217,7 +216,7 @@ Ext.ux.ListPreview = Ext.extend(Ext.util.Observable, {
      * @private
      */
     initEvents : function() {
-        this.zoomIn();
+        this.showZoomIn();
         this.previewBtnEl.fadeIn({
             duration: 1.5
         });
@@ -228,32 +227,42 @@ Ext.ux.ListPreview = Ext.extend(Ext.util.Observable, {
             Ext.fly(t).addClass('ux-list-preview-active').blur();
 
             this.previewMaskEl.hide();
-            this.previewBoxEl.hide();
+            this.previewBoxWrapEl.hide();
 
             // set current item index
             var a = t.id.split('-');
             this.displayIndex = [a[a.length - 2], a[a.length - 1]];
 
-            this.zoomIn();
+            this.showZoomIn();
         }, this);
 
         this.prevBtnEl.on('click', function(ev, t) {
             ev.preventDefault();
-            this.slide(-1);
+            this.showSlide(-1);
             this.prevBtnEl.blur();
         }, this);
 
         this.nextBtnEl.on('click', function(ev, t) {
             ev.preventDefault();
-            this.slide(1);
+            this.showSlide(1);
             this.nextBtnEl.blur();
-        }, this);        
+        }, this);
+
+        this.previewBoxEl.on('click', function(ev, t) {
+            if(t.href.slice(-1) == '#') {
+                ev.preventDefault();
+            }
+            var groupIndex = this.displayIndex.join('-');            
+            this.fireEvent('change', t, groupIndex);
+        }, this, {
+            delegate: 'a'
+        });
     },
 
     /**
      * @private
      */
-    zoomIn : function() {
+    showZoomIn : function() {
         this.previewMaskEl.show();
         this.previewMaskEl.setStyle({
             left : '7px',
@@ -275,7 +284,7 @@ Ext.ux.ListPreview = Ext.extend(Ext.util.Observable, {
     /**
      * @private
      */
-    slide : function(step) {
+    showSlide : function(step) {
         var a = this.displayIndex,
             index = a[0],
             subIndex = a[1];
@@ -308,9 +317,9 @@ Ext.ux.ListPreview = Ext.extend(Ext.util.Observable, {
         this.displayIndex = [index, subIndex];
         
         this.previewMaskEl.hide();
-        this.previewBoxEl.hide();
+        this.previewBoxWrapEl.hide();
 
-        this.zoomIn();
+        this.showZoomIn();
 
         this.menuItems.removeClass('ux-list-preview-active');
         Ext.fly(this.elId + '-' + index + '-' + subIndex).addClass('ux-list-preview-active');
@@ -334,11 +343,12 @@ Ext.ux.ListPreview = Ext.extend(Ext.util.Observable, {
             this.contentTemplate.append(this.previewBoxEl, {
                 title: item.title,
                 imageUrl: item.imageUrl,
-                content: item.content,
-                url: item.url
+                description: item.content,
+                url: item.url || '#',
+                target: item.target || '_blank'
             });
 
-            this.previewBoxEl.fadeIn();
+            this.previewBoxWrapEl.fadeIn();
         }
     }
 

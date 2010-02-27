@@ -57,7 +57,7 @@ body {
     height: 394px;
     background: url(../images/bg-example-preview.png) no-repeat 0 0;
     _background: none;
-    _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="../images/bg-example-preview.png", sizingMethod="crop");
+    _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="images/bg-example-preview.png", sizingMethod="crop");
 }
 
 .ux-list-preview-box-content {
