@@ -152,14 +152,15 @@ Ext.ux.MorphList = Ext.extend(Ext.util.Observable, {
      */
     initEvents : function() {
         this.menuItems.on('mouseenter', function(ev, t) {
-            this.morphTo(Ext.fly(t));
+            this.setMorphTo(Ext.fly(t));
         }, this);
         
         this.menuItems.on('mouseleave', function(ev, t) {
-            this.morphTo(this.currentEl);
+            this.setMorphTo(this.currentEl);
         }, this);
 
         this.menuItems.on('click', function(ev, t) {
+			t.blur();
             if(t.href.slice(-1) == '#') {
                 ev.preventDefault();
             }
@@ -198,7 +199,7 @@ Ext.ux.MorphList = Ext.extend(Ext.util.Observable, {
     /**
      * @private
      */
-    morphTo : function(target) {
+    setMorphTo : function(target) {
         if(!this.currentEl) {
             return false;
         }
