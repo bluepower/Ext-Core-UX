@@ -78,6 +78,7 @@ body {
     border: 2px solid #96C3DF;
     cursor: pointer;
     overflow: hidden;
+    _position: relative;
 }
 .ux-list-preview-box-content .bd {
     margin-top: 8px;
@@ -100,6 +101,7 @@ body {
     color: #fff;
     text-decoration: none;
     font: normal 12px tahoma,helvetica,arial,sans-serif;
+    _position: relative;
 }
 .ux-list-preview-box-content .ft a span {
     float: left;
