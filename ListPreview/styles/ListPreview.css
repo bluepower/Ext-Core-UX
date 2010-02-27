@@ -163,6 +163,7 @@ body {
 }
 
 .ux-list-preview-category a.ux-list-preview-item:hover {
+    color: #555;
     background-position: 0 -22px;
 }
 
