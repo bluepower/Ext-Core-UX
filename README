@@ -1,9 +1,27 @@
-@description
-some user extensions based on Ext Core
+@description Some user extensions (MIT License) based on Ext Core
 
-@author
-Niko Ni (bluepspower@163.com)
+@author Niko Ni (bluepspower@163.com)
+
+@since 2009-06-20
 
 @link
 Ext Core UX Doc
 http://cz9908.com/showcase/?item=Ext-Core-UX-Doc&p=1
+
+@demo
+-MessageSlider
+http://cz9908.com/showcase/?item=message-slider&p=1
+
+-FisheyeMenu
+http://cz9908.com/showcase/?item=fisheye-menu&p=1
+-DesktopFisheye
+http://cz9908.com/showcase/?item=desktop-fisheye&p=1
+
+-MorphList
+http://cz9908.com/showcase/?item=morphlist&p=1
+
+-ErrorList
+http://cz9908.com/showcase/?item=errorlist&p=1
+
+-ListPreview
+http://cz9908.com/showcase/?item=listpreview&p=1
