@@ -4,6 +4,9 @@
 
 @since 2009-06-20
 
+@base-lib ext-core
+http://code.google.com/apis/ajaxlibs/documentation/index.html#ext-core
+
 @link
 Ext Core UX Doc
 http://cz9908.com/showcase/?item=Ext-Core-UX-Doc&p=1
