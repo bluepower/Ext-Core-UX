@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Ext ErrorList by Niko Ni</title>
+  <link type="text/css" rel="stylesheet" href="styles/ErrorList.css" />
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/ext-core/3.1.0/ext-core.js"></script>
+  <script type="text/javascript" src="scripts/ErrorList.js"></script>
+
+  <script type="text/javascript">
+  // <![CDATA[
+        // Trims whitespace from either end of a string, leaving spaces within the string intact.
+        Ext.applyIf(String.prototype, {
+            trim : function() {
+                var re = /^\s+|\s+$/g;
+                return function() {
+                    return this.replace(re, '');
+                };
+            }()    
+        });
+
+        Ext.onReady(function() {
+            Ext.fly('errorlist-form').on('submit', function(ev) {
+                ev.preventDefault();
+
+                var bSubmit = true,
+                    emailValue = Ext.fly('errorlist-email').dom.value.trim(),
+                    reEmail = /^(\w+)([\-+.][\w]+)*@(\w[\-\w]*\.){1,5}([A-Za-z]){2,6}$/,
+                    fnEmptyCheck = function(el) {
+                        if(Ext.fly(el).dom.value.trim() == '') {
+                            bSubmit = false;
+                            Ext.ux.ErrorList.show({
+                                errorMessage : 'Field is required.',
+                                topInsert : 'errorlist-top',
+                                bottomInsert : el,
+                                highlightLabel : el + '-label'
+                            });
+                        }
+                    };
+
+                // clear error messaging first if any
+                Ext.ux.ErrorList.clear('errorlist-section');
+
+                // validate and show related error messaging
+                fnEmptyCheck('errorlist-email');
+                fnEmptyCheck('errorlist-password');
+                if(emailValue && !reEmail.test(emailValue)) {
+                    bSubmit = false;
+                    Ext.ux.ErrorList.show({
+                        errorMessage : 'Invalid email format.',
+                        topInsert : 'errorlist-top',
+                        bottomInsert : 'errorlist-email',
+                        highlightLabel : 'errorlist-email-label'
+                    });
+                }
+
+                if(bSubmit) {
+                    var formEl = Ext.getDom('errorlist-form');
+                    formEl.method = 'POST';
+					formEl.target = '_top';
+                    formEl.action = 'http://cz9908.com/blog/Niko-weblog-labs/lab-Niko-Ext-Core-UX-Doc/output/?class=Ext.ux.ErrorList';
+                    formEl.submit();
+                }
+            });
+
+            Ext.fly('errorlist-reset').on('click', function() {
+                Ext.ux.ErrorList.clear('errorlist-section');
+            });
+        });
+  // ]]>
+  </script>    
+</head>
+
+<body>
+
+  <form id="errorlist-form" action="#">
+    <div id="errorlist-section">
+      <div class="hd"></div>
+
+      <div class="bd">
+        <div id="errorlist-top" style="display: none;"></div>
+        <ul>
+          <li class="list-item">
+            <p id="errorlist-email-label">Email:</p>
+            <input type="text" id="errorlist-email" name="email" value="" />
+          </li>
+          <li class="list-item">
+            <p id="errorlist-password-label">Password:</p>
+            <input type="password" id="errorlist-password" name="password" value="" />
+          </li>
+          <li class="list-btn">
+            <input type="submit" id="errorlist-submit" value="Sign In" />
+            <input type="reset" id="errorlist-reset" value="Reset" />
+          </li>
+        </ul>
+      </div>
+      
+      <div class="ft"></div>
+    </div>
+  </form>
+
+</body>
+</html>

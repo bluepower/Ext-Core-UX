@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Ext ListPreview by Niko Ni</title>
+  <link type="text/css" rel="stylesheet" href="styles/ListPreview.css" />
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/ext-core/3.1.0/ext-core.js"></script>
+  <script type="text/javascript" src="scripts/ListPreview.js"></script>
+
+  <script type="text/javascript">
+  // <![CDATA[
+        Ext.onReady(function() {
+
+            new Ext.ux.ListPreview({
+                renderTo : 'list-preview-section',
+                items : [{
+					title: '网页预览，预见未来',
+					children: [{
+						title: '有道首创“网页预览”专利技术',
+						imageUrl: 'images/snap1.jpg',
+						content: '<p>文字、图片、视频均可快速预览，大大节省在结果中反复查找时间<br />网页预览页面关键词定位一路到底，帮助您快速找到最需要的信息</p>',
+						url: '#'
+						//cls: 'current'
+					}, {
+						title: '更安全的搜索引擎',
+						imageUrl: 'images/snap2.jpg',
+						content: '<p>三重安全保护：搜索结果标注、恶意网站警告、安全模式预览<br />彻底告别木马病毒和恶意网页的干扰，安全安心搜索互联网</p>',
+						url: '#'
+					}]
+				}, {
+					title: '内核提速、全新界面',
+					children: [{
+						title: '搜索引擎核心技术全面升级',
+						imageUrl: 'images/snap3.jpg',
+						content: '<p>抓取超过150亿中文网页，毫秒级响应速度<br />首屏准确率大幅提升，迅速找到想要的信息</p>',
+						url: '#'
+					}, {
+						title: '高级搜索选项，更精准，更方便',
+						imageUrl: 'images/snap4.jpg',
+						content: '<p>新增左侧功能栏，可按网站类型、时间等分类将结果再次细分<br />“大家还在搜”帮您找到与当前搜索相关的其他热搜关键词</p>',
+						url: '#'
+					}, {
+						title: '漂亮皮肤，靓丽心情',
+						imageUrl: 'images/snap5.jpg',
+						content: '<p>百余款精美皮肤，所有页面同步更换<br />彻底告别传统搜索引擎的审美疲劳</p>',
+						url: '#'
+					}]
+				}, {
+					title: '全能生活帮手',
+					children: [{
+						title: '搜索百宝囊，生活好帮手',
+						imageUrl: 'images/snap6.jpg',
+						content: '<p>30余项创新的贴心小功能，涵盖日常生活各个方面<br />股票、影讯、星座、彩票、列车时刻表… 有道都能帮你解忧</p>',
+						url: '#'
+					}, {
+						title: '个性首页，个人专属上网入口',
+						imageUrl: 'images/snap7.jpg',
+						content: '<p>汇集了各种最常用的互联网应用模块<br />一键定制符合您个人口味的上网入口</p>',
+						url: '#'
+                        //cls: 'current'
+					}, {
+						title: '搜索历史， 回顾您的足迹',
+						imageUrl: 'images/snap8.jpg',
+						content: '<p>左侧功能栏即时提醒和按日期详细记录相结合<br />可逐条删除记录或全部清空，贴心保护您的隐私</p>',
+						url: '#'
+					}]
+				}]
+            });
+
+        });
+  // ]]>
+  </script>
+
+</head>
+
+<body>
+
+  <div id="list-preview-section"></div>
+
+</body>
+</html>

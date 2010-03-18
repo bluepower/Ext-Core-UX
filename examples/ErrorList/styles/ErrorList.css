@@ -1,0 +1,103 @@
+/* styles for CSS Reset */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote{margin:0;padding:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}ol,ul {list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;}
+
+/* styles for examples */
+body {
+    background-color: #F0F0F0;
+}
+
+#errorlist-section {
+    margin: 30px auto;
+    width: 380px;
+    color: #555;
+    font: normal 12px verdana,helvetica,arial,sans-serif;
+}
+
+#errorlist-section .hd {
+    height: 30px;
+    background: url(../images/bg-example-container.gif) no-repeat 0 0;
+}
+
+#errorlist-section .bd {
+    border-left: 1px solid #CBCBCB;
+    border-right: 1px solid #CBCBCB;
+}
+
+    #errorlist-section .bd ul {
+        padding-left: 160px;
+        padding-top: 45px;
+        background: #fff url(../images/bg-example-extra.gif) no-repeat 0 0;
+    }
+
+    #errorlist-section .bd ul li.list-item {
+        margin-bottom: 8px;
+    }
+
+        #errorlist-section .bd ul li.list-item p {
+            height: 20px;
+            font-weight: bold;
+        }
+
+        #errorlist-section .bd ul li.list-item input {
+            width: 180px;
+            height: 18px;
+            font: normal 12px verdana,helvetica,arial,sans-serif;
+        }
+
+    #errorlist-section .bd ul li.list-btn {
+        margin-top: 15px;
+        height: 30px;
+    }
+
+        #errorlist-section .bd ul li.list-btn input {
+            margin-right: 10px;
+            font: normal 12px verdana,helvetica,arial,sans-serif;
+        }
+
+#errorlist-section .ft {
+    height: 10px;
+    background: url(../images/bg-example-container.gif) no-repeat 0 bottom;
+}
+
+/* styles for ErrorList */
+.ux-errorlist-error-container {
+    clear: both;
+    margin: 0 1px;
+    padding: 1px;
+    background-color: #fef6f8;
+    border: 1px solid #f00;
+    color: #f00;
+    font: normal 12px tahoma,helvetica,arial,sans-serif;
+}
+
+.ux-errorlist-error-field {
+    clear: both;
+    color: #f00;
+    text-align: left;
+    height: 18px;
+    overflow: hidden;
+    font: normal 11px tahoma,helvetica,arial,sans-serif;
+}
+
+.ux-errorlist-error-input {
+    border: 1px solid #f00;
+    background-color: #fef6f8;
+}
+
+.ux-errorlist-error-label {
+    color: #f00;
+}
+
+.ux-errorlist-big-warning {
+    margin-right: 5px;
+    width: 20px;
+    height: 20px;
+    background: url(../images/icon-big-warning.gif) no-repeat 0 0;
+}
+
+.ux-errorlist-tiny-warning {
+    margin-right: 3px;
+    width: 16px;
+    height: 16px;
+    background: url(../images/icon-tiny-warning.gif) no-repeat 0 0;
+}

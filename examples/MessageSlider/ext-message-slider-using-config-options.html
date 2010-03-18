@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Ext MessageSlider by Niko Ni</title>
+  <link type="text/css" rel="stylesheet" href="styles/MessageSlider.css" />
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/ext-core/3.0/ext-core.js"></script>
+  <script type="text/javascript" src="scripts/MessageSlider.js"></script>
+
+  <script type="text/javascript">
+  // <![CDATA[
+        Ext.onReady(function() {
+
+            new Ext.ux.MessageSlider({
+			    renderTo : 'msg-slider-section',
+                intervalTime : 5,
+                items : [{
+                    content: 'Ext Carousel example &raquo;',
+                    url: 'http://extjs.com/playpen/ext-core-latest/examples/carousel/',
+                    tip: 'The Carousel example provides a widget for browsing a set of objects',
+                    target: 'show-example'
+                }, {
+                    content: 'Ext JSONP example &raquo;',
+                    url: 'http://extjs.com/playpen/ext-core-latest/examples/jsonp/',
+                    tip: 'The JSONP example shows how you can fetch JSON data from a different domain',
+                    target: 'show-example'
+                }, {
+                    content: 'Ext Core 3.0 - API Documentation',
+                    url: 'http://extjs.com/products/extcore/docs/'
+                }, {
+                    content: '<img src="images/ext-site-logo.gif" />',
+                    url: 'http://extjs.com',
+                    tip: 'Welcome to ExtJS.com'
+                }]
+            });
+            
+        });
+  // ]]>
+  </script>
+  
+</head>
+
+<body>
+
+  <div id="msg-slider-section"></div>
+  <div id="example-section"></div>
+  <iframe id="show-example" name="show-example" frameborder="0" src="_sandbox/intro.html"></iframe>
+
+</body>
+</html>

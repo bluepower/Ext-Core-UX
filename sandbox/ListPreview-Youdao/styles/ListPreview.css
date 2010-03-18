@@ -1,0 +1,172 @@
+/* styles for CSS Reset */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote{margin:0;padding:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}ol,ul {list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;}
+
+/* styles for examples */
+body {
+    background: #d1d3d5 url(../images/bg-example-top.png) repeat-x top;
+}
+
+/* styles for ListPreview */
+.ux-list-preview-container {
+    clear: both;
+    width: 936px;
+    margin: 0 auto;
+    padding: 0 33px;
+    background: url(../images/bg-example-container.jpg) no-repeat 0 0;
+}
+
+.ux-list-preview-hd {
+    clear: both;
+    height: 90px;    
+}
+
+.ux-list-preview-bd {
+    clear: both;
+    position: relative;
+    height: 435px;
+}
+
+.ux-list-preview-wrap {
+    position: absolute;
+    left: 195px;
+    top: 20px;
+}
+
+.ux-list-preview-mask {
+    position: absolute;
+    left: 30px;
+    top: 10px;
+    width: 385px;
+    height: 373px;
+    background-color: #2d5f91;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+    font-size: 0;
+    z-index: 0;
+}
+
+.ux-list-preview-box-wrap {
+    position: relative;
+    width: 425px;
+    height: 394px;
+    z-index: 2;
+}
+.ux-list-preview-box {
+    width: 425px;
+    height: 394px;
+    background: url(../images/bg-example-preview.png);
+    _background: none;
+    _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="images/bg-example-preview.png", sizingMethod="crop");
+}
+
+.ux-list-preview-box-content {
+    padding: 10px 20px 10px 37px;
+    text-align: left;
+}
+.ux-list-preview-box-content h3 {
+    height: 32px;
+    line-height: 32px;
+    font-weight: bold;
+    font-size: 14px;
+}
+.ux-list-preview-box-content .hd {
+    margin-top: 5px;
+    padding: 1px;
+    width: 366px;
+    height: 218px;
+    border: 2px solid #96C3DF;
+    cursor: pointer;
+    overflow: hidden;
+}
+.ux-list-preview-box-content .bd {
+    margin-top: 8px;
+}
+.ux-list-preview-box-content .bd p {
+    margin-bottom: 8px;
+    line-height: 19px;
+    color: #555;
+    font-size: 12px;
+}
+.ux-list-preview-box-content .ft {
+    margin: 8px 0;
+}
+.ux-list-preview-box-content .ft a {
+    float: left;
+    display: block;
+    padding-left: 26px;
+    height: 24px;
+    background: url(../images/bg-btn-item.gif) no-repeat left top;
+    color: #fff;
+    text-decoration: none;
+    font: normal 12px tahoma,helvetica,arial,sans-serif;
+}
+.ux-list-preview-box-content .ft a span {
+    float: left;
+    padding-right: 5px;
+    height: 24px;
+    line-height: 24px;
+    background: url(../images/bg-btn-item.gif) no-repeat right top;
+    cursor: pointer;
+}
+
+.ux-list-preview-btn {
+    position: absolute;
+    left: 440px;
+    top: 320px;
+}
+.ux-list-preview-btn a {
+    display: block;
+    width: 26px;
+    height: 28px;
+    overflow: hidden;
+    text-indent: -100px;
+    background: url(../images/bg-btn-sprite.gif) no-repeat 0 0;
+}
+.ux-list-preview-btn a.ux-list-preview-btn-prev {
+    background-position: -52px 0;
+}
+.ux-list-preview-btn a.ux-list-preview-btn-next {
+    margin-top: 10px;
+    background-position: -78px 0;
+}
+
+.ux-list-preview-ft {
+    clear: both;
+    height: 135px;
+}
+
+.ux-list-preview-category {
+    float: left;
+    padding-left: 30px;
+    width: 280px;
+    height: 135px;
+    text-align: left;
+    background: url(../images/bg-item-text.gif) no-repeat 0 center;
+}
+
+.ux-list-preview-category h3 {
+    padding: 22px 0 6px 0;
+    color: #fff;
+    font: normal 22px "微软雅黑", "黑体", Arial, Helvetica, sans-serif;
+}
+
+.ux-list-preview-category a.ux-list-preview-item {
+    display: block;
+    margin-top: 1px;
+    padding-left: 20px;
+    height: 20px;
+    line-height: 20px;
+    color: #fff;
+    text-decoration: none;
+    background: url(../images/bg-menu-item.gif) no-repeat 0 0;
+    font-size: 12px;
+}
+
+.ux-list-preview-category a.ux-list-preview-item:hover {
+    background-position: 0 -22px;
+}
+
+.ux-list-preview-category a.ux-list-preview-active,
+.ux-list-preview-category a.ux-list-preview-active:hover {
+    background-position: 0 -43px;
+}

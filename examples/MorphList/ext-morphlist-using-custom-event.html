@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Ext MorphList by Niko Ni</title>
+  <link type="text/css" rel="stylesheet" href="styles/MorphList.css" />
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/ext-core/3.0/ext-core.js"></script>
+  <script type="text/javascript" src="scripts/MorphList.js"></script>
+
+  <script type="text/javascript">
+  // <![CDATA[
+        Ext.onReady(function() {
+
+            var ml = new Ext.ux.MorphList({
+                renderTo : 'morphlist-section',
+                easing : 'backOut',
+                duration : 1,
+                items : [{
+                    text: 'ExtCore UX Doc'
+                }, {
+                    text: 'Home',
+					cls: 'current'
+                }, {
+                    text: 'Products'                    
+                }, {
+                    text: 'Support'
+                }, {
+                    text: 'Jobs'
+                }, {
+                    text: 'Company'
+                }, {
+                    text: 'Blog'
+                }, {
+                    text: 'Store'
+                }]
+            });
+
+            ml.on('change', function(obj, index) {
+				/*
+                // view debug info in firebug if you have turned on firebug console
+                if(typeof console != 'undefined') {
+                    console.dir(obj);
+                    console.log(index);
+                }
+				*/
+
+                // your scripts
+                switch(index) {
+					case 0:
+						window.open('http://cz9908.com/blog/Niko-weblog-labs/lab-Niko-Ext-Core-UX-Doc/output/?class=Ext.ux.MorphList', '_blank');
+						break;
+                    case 1:
+                        window.open('http://www.extjs.com/', '_blank');
+                        break;
+                    case 2:
+                        window.open('http://www.extjs.com/products', '_blank');
+                        break;
+                    case 3:
+                        window.open('http://www.extjs.com/support', '_blank');
+                        break;
+                    case 4:
+                        window.open('http://jobs.extjs.com/', '_blank');
+                        break;
+                    case 5:
+                        window.open('http://www.extjs.com/company', '_blank');
+                        break;
+                    case 6:
+                        window.open('http://www.extjs.com/blog', '_blank');
+                        break;
+                    case 7:
+                        window.open('http://www.extjs.com/store', '_blank');
+                        break;                
+                }
+            });            
+
+        });
+  // ]]>
+  </script>
+
+</head>
+
+<body>
+
+  <div id="morphlist-section"></div>
+
+</body>
+</html>
