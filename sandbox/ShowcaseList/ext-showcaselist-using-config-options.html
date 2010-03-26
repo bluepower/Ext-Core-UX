@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Ext ShowcaseList by Niko Ni</title>
+  <link type="text/css" rel="stylesheet" href="styles/ShowcaseList.css" />
+  <!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/ext-core/3.0.0/ext-core.js"></script>-->
+  <script type="text/javascript" src="../../test/ext-core.js"></script>
+  <script type="text/javascript" src="scripts/ShowcaseList.js"></script>
+
+  <script type="text/javascript">
+  // <![CDATA[
+        Ext.onReady(function() {
+
+            new Ext.ux.ShowcaseList({
+                renderTo : 'showcase-list-section',
+				title : 'Gcc UI Showcase Examples List',
+                items : [{
+					title:'DatePicker Samples',
+					samples: [{
+					  text: 'DatePicker dropdown',
+					  url : 'datepicker/datepicker-dropdown.html',
+					  icon: 'thumb-datepicker.gif',
+					  desc: 'DatePicker dropdown mode.'
+					},{
+					  text: 'DatePicker textfield',
+					  url : 'datepicker/datepicker-textfield.html',
+					  icon: 'thumb-datepicker.gif',
+					  desc: 'DatePicker textfield mode.'  
+					}]
+				},{
+					title:'ComboBox Samples',
+					samples: [{
+					  text: 'Basic ComboBox With Tooltip',
+					  url : 'combobox/simple-combo-box.html',
+					  icon: 'thumb-combo.gif',
+					  desc: 'ComboBox with Tooltip in each option.'
+					},{
+					  text: 'Multiple ComboBox instances',
+					  url : 'combobox/multiple-combo-box.html',
+					  icon: 'thumb-combo.gif',
+					  desc: 'Support Multiple ComboBox instances.'	  
+					},{
+					  text: 'TimePicker',
+					  url : 'combobox/time-picker.html',
+					  icon: 'thumb-combo.gif',
+					  desc: 'TimePicker ComboBox to edit time.'	  
+					}]
+				},{
+					title:'Popup Window Samples',
+					samples: [{
+					  text: 'Combination Examples',
+					  url : 'popup-window/mixed-popups.html',
+					  icon: 'thumb-popup.gif',
+					  desc: 'Combination Window examples.'
+					},{
+					  text: 'Single Popup Window',
+					  url : 'popup-window/single-popup.html',
+					  icon: 'thumb-popup.gif',
+					  desc: 'Just a single Popup Window.'
+					},{
+					  text: 'Custom Alert MessageBox',
+					  url : 'popup-window/customize-alert-message-box.html',
+					  icon: 'thumb-alert.gif',
+					  desc: 'Customized Alert MessageBox.'
+					},{
+					  text: 'Custom Confirm MessageBox',
+					  url : 'popup-window/customize-confirm-message-box.html',
+					  icon: 'thumb-popup.gif',
+					  desc: 'Customized Confirm MessageBox.'
+					},{
+					  text: 'Alert MessageBox',
+					  url : 'popup-window/alert-message-box.html',
+					  icon: 'thumb-alert.gif',
+					  desc: 'Look and feel like Alert MessageBox.'
+					},{
+					  text: 'Confirm MessageBox',
+					  url : 'popup-window/confirm-message-box.html',
+					  icon: 'thumb-popup.gif',
+					  desc: 'Look and feel like Confirm MessageBox.'
+					},{
+					  text: 'Dialog Info',
+					  url : 'popup-window/dialog-info.html',
+					  icon: 'thumb-popup.gif',
+					  desc: 'Show info in a dialog.'
+					},{
+					  text: 'IFrame popup',
+					  url : 'popup-window/iframe-popup.html',
+					  icon: 'thumb-popup.gif',
+					  desc: 'Show popup window with iframe.'
+					}]
+				},{
+					title:'More Samples',
+					samples: [{
+					  text: 'Error Messaging',
+					  url : 'error-container/error-messaging.html',
+					  icon: 'thumb-error.gif',
+					  desc: 'Show Error Container.'
+					},{
+					  text: 'Basic Tooltip',
+					  url : 'tooltip/simple-tooltip.html',
+					  icon: 'thumb.gif',
+					  desc: 'Show simple tooltip.'
+					},{
+					  text: 'Dynamic Locale',
+					  url : 'locale/locale-dropdown.html',
+					  icon: 'thumb.gif',
+					  desc: 'Show dynamic locale from dropdown.'
+					},{
+					  text: 'Image Preview',
+					  url : 'image-preview/simple-image-preview.html',
+					  icon: 'thumb.gif',
+					  desc: 'Show simple image preview.'
+					},{
+					  text: 'Char Counter',
+					  url : 'char-counter/simple-char-counter.html',
+					  icon: 'thumb.gif',
+					  desc: 'Show char counter.'
+					},{
+					  text: 'Slides Preview',
+					  url : 'slides-preview/slides-preview.html',
+					  icon: 'thumb.gif',
+					  desc: 'Parse data source from preload xml and Preview slide thumbnails.'
+					}]
+				}]
+            });
+
+        });
+  // ]]>
+  </script>
+
+</head>
+
+<body>
+
+  <div id="showcase-list-section"></div>
+
+</body>
+</html>
