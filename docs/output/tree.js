@@ -11,6 +11,8 @@
                 {"href":"output/Ext.ux.MessageSlider.html","text":"MessageSlider","id":"Ext.ux.MessageSlider","isClass":true,"iconCls":"icon-cls","cls":"cls","leaf":true}
 				,
                 {"href":"output/Ext.ux.MorphList.html","text":"MorphList","id":"Ext.ux.MorphList","isClass":true,"iconCls":"icon-cls","cls":"cls","leaf":true}
+				,
+                {"href":"output/Ext.ux.ShowcaseList.html","text":"ShowcaseList","id":"Ext.ux.ShowcaseList","isClass":true,"iconCls":"icon-cls","cls":"cls","leaf":true}
 				]}
 				]}
 				]};
@@ -25,5 +27,7 @@
 			"Ext.ux.MessageSlider":"icon-cls"
 			,
 			"Ext.ux.MorphList":"icon-cls"
+			,
+			"Ext.ux.ShowcaseList":"icon-cls"
 			};
     
