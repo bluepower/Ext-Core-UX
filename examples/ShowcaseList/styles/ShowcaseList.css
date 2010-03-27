@@ -20,6 +20,12 @@ body {
 	width: 960px;
 }
 
+#showcase-donate {
+	position: absolute;
+	left: 10px;
+	top: 10px;	
+}
+
 /* styles for ShowcaseList */
 .ux-showcase-list-container {
 	margin: 5px 0 0 0;
