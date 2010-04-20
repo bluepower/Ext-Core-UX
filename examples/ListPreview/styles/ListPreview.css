@@ -157,11 +157,14 @@ body {
     display: block;
     margin-top: 1px;
     padding: 2px 0 0 20px;
+	width: 240px;
     height: 18px;
     color: #fff;
     text-decoration: none;
     background: url(../images/bg-menu-item.gif) no-repeat 0 0;
     font-size: 11px;
+	white-space: nowrap;
+	overflow: hidden;
 }
 
 .ux-list-preview-category a.ux-list-preview-item:hover {
