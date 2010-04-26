@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Ext FisheyeMenu extention</title>
+  <link type="text/css" rel="stylesheet" href="styles/FisheyeMenu.css" />
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/ext-core/3.1.0/ext-core.js"></script>
+  <script type="text/javascript" src="scripts/FisheyeMenu.js"></script>
+
+  <script type="text/javascript" src="scripts/FisheyeMenuExtention.js"></script>
+  <script type="text/javascript">
+  // <![CDATA[
+        Ext.onReady(function() {
+
+            var fme = new Ext.ux.FisheyeMenuExtention({
+				renderTo : 'fisheye-menu',
+				hAlign : 'center', // left|center|right
+				vAlign : 'top', // top|bottom
+				itemWidth : 60,
+                items : [{
+                    text: 'Clock',
+					imagePath: 'images/clock.png',
+					url: 'http://code.google.com/p/clock/'
+                }, {
+                    text: 'Map',
+					imagePath: 'images/map.png',
+					url: 'http://maps.google.com'
+                }, {
+                    text: 'Photo',
+					imagePath: 'images/photo.png',
+					url: 'http://picasaweb.google.com'
+                }, {
+                    text: 'Music',
+                    imagePath: 'images/music.png',
+					url: 'http://www.google.com/Top/Arts/Music/'
+                }]
+            });
+
+			Ext.fly('btn-add').on('click', function() {
+				fme.addItem({
+                    text: 'Calendar',
+                    imagePath: 'images/calendar.png',
+					url: 'http://www.google.com/calendar'				
+				});
+			});
+
+			Ext.fly('btn-remove').on('click', function() {
+				fme.removeItem(Ext.getDom('item-index').value);
+			});
+                        
+        });
+  // ]]>
+  </script>
+  
+</head>
+
+<body>
+
+  <div id="fisheye-menu"></div>
+
+  <div><button id="btn-add">Add menu item</button></div>
+  <div>
+    <button id="btn-remove">Remove menu item</button>
+	<input type="text" id="item-index" style="width: 20px;" value="2" />
+  </div>
+
+</body>
+</html>

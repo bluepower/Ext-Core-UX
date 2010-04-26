@@ -5,9 +5,9 @@
  * @class Ext.ux.FisheyeMenuExtention
  * @extend Ext.ux.FisheyeMenu
  * @author hello2008
- * @version v0.1
+ * @version v0.2
  * @create 2010-04-22
- * @update 2010-04-22 
+ * @update 2010-04-26 
  */
 Ext.ux.FisheyeMenuExtention = Ext.extend(Ext.ux.FisheyeMenu, {
     //------------------------------------------------------------
@@ -28,7 +28,7 @@ Ext.ux.FisheyeMenuExtention = Ext.extend(Ext.ux.FisheyeMenu, {
     //------------------------------------------------------------
     /**
 	 * Add menu item
-     * @param item Config option
+     * @param {Object} item Config option
      */
 	addItem : function(item) {
 		var sId = this.el.getAttribute('id') || Ext.id();
@@ -60,10 +60,32 @@ Ext.ux.FisheyeMenuExtention = Ext.extend(Ext.ux.FisheyeMenu, {
 
         this.menuItems = this.containerEl.select('a.ux-fisheye-menu-item');
         this.itemCount = this.menuItems.getCount();
+		// render UI
+		this.onRender();
 		
         // reset events, hover or not
         this.menuItems.on('mouseover', this.onItemHover, this);
         this.menuItems.on('mouseout', this.onItemOut, this);
+	},
+
+	/**
+	 * Remove specific menu item
+	 * @param {Number} index The specific item index
+	 */
+	removeItem : function(index) {
+		var sId = 'fisheye-menu-' + index,
+			menuItem = Ext.get(sId);
+
+		if(!menuItem) {
+			alert('cannot find the menu item!');
+		} else {
+			menuItem.remove();
+
+			this.menuItems = this.containerEl.select('a.ux-fisheye-menu-item');
+			this.itemCount = this.menuItems.getCount();
+			// render UI
+			this.onRender();
+		}
 	}
 
 });  // end of Ext.ux.FisheyeMenuExtention
