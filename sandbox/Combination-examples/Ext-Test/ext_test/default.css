@@ -23,7 +23,7 @@
 /* treenode icon style */
  
 .testsuite-failed, .testsuite-passed , .testsuite-running {
-  background-image:url("../ext-3.2.1/resources/images/default/tree/drop-yes.gif");
+  background-image:url("http://extjs.cachefly.net/ext-3.2.1/resources/images/default/tree/drop-yes.gif");
   background-position:center center;
   background-repeat:no-repeat;
   border:0 none;
@@ -36,15 +36,15 @@
 }
 
 .testsuite-passed {
-  background-image:url("../ext-3.2.1/resources/images/default/tree/drop-yes.gif");
+  background-image:url("http://extjs.cachefly.net/ext-3.2.1/resources/images/default/tree/drop-yes.gif");
 }
 
 .testsuite-failed {
-  background-image:url("../ext-3.2.1/resources/images/default/tree/drop-no.gif");
+  background-image:url("http://extjs.cachefly.net/ext-3.2.1/resources/images/default/tree/drop-no.gif");
 }
 
 .testsuite-running {
-  background-image:url("../ext-3.2.1/resources/images/default/tree/loading.gif");
+  background-image:url("http://extjs.cachefly.net/ext-3.2.1/resources/images/default/tree/loading.gif");
 }
 
 /* end of  treenode icon style */
