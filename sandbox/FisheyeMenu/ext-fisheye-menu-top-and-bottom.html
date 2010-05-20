@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Ext FisheyeMenu by Niko Ni</title>
+  <link type="text/css" rel="stylesheet" href="styles/FisheyeMenu.css" />
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/ext-core/3.1.0/ext-core.js"></script>
+  <script type="text/javascript" src="scripts/FisheyeMenu.js"></script>
+
+  <script type="text/javascript">
+  // <![CDATA[
+        Ext.onReady(function() {
+			var cfg = {
+				itemWidth : 60,
+                items : [{
+                    text: 'Clock',
+					imagePath: 'images/clock.png',
+					url: 'http://code.google.com/p/clock/'
+                }, {
+                    text: 'Map',
+					imagePath: 'images/map.png',
+					url: 'http://maps.google.com'
+                }, {
+                    text: 'Photo',
+					imagePath: 'images/photo.png',
+					url: 'http://picasaweb.google.com'
+                }, {
+                    text: 'Music',
+                    imagePath: 'images/music.png',
+					url: 'http://www.google.com/Top/Arts/Music/'
+                }, {
+                    text: 'Movie',
+                    imagePath: 'images/movie.png',
+					url: 'http://video.google.com'
+                }, {
+                    text: 'Stock',
+                    imagePath: 'images/stock.png',
+					url: 'http://www.google.com/finance'
+                }, {
+                    text: 'Calendar',
+                    imagePath: 'images/calendar.png',
+					url: 'http://www.google.com/calendar'
+                }, {
+                    text: 'SMS',
+                    imagePath: 'images/sms.png',
+					url: 'http://www.google.com/sms/'
+                }]
+            };
+
+            new Ext.ux.FisheyeMenu(Ext.apply(cfg, {
+				renderTo : 'fisheye-menu-top',
+				vAlign : 'top'
+			}));
+
+            new Ext.ux.FisheyeMenu(Ext.apply(cfg, {
+				renderTo : 'fisheye-menu-bottom',
+				vAlign : 'bottom'
+			}));
+                        
+        });
+  // ]]>
+  </script>
+  
+</head>
+
+<body>
+
+  <div id="fisheye-menu-top"></div>
+  <div id="fisheye-menu-bottom"></div>
+
+</body>
+</html>
