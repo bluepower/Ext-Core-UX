@@ -1,7 +1,7 @@
 /**
  * TestSuite for String
  */
-new Ext.test.testSuite({
+new Ext.test.TestSuite({
 	name : 'String more TestSuite',
 	
 	items : [{
