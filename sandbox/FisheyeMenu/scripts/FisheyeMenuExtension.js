@@ -2,14 +2,14 @@
 //Ext.ns('Ext.ux');
 
 /**
- * @class Ext.ux.FisheyeMenuExtention
+ * @class Ext.ux.FisheyeMenuExtension
  * @extend Ext.ux.FisheyeMenu
  * @author hello2008
  * @version v0.2
  * @create 2010-04-22
  * @update 2010-04-26 
  */
-Ext.ux.FisheyeMenuExtention = Ext.extend(Ext.ux.FisheyeMenu, {
+Ext.ux.FisheyeMenuExtension = Ext.extend(Ext.ux.FisheyeMenu, {
     //------------------------------------------------------------
     // class constructor
     //------------------------------------------------------------
@@ -20,7 +20,7 @@ Ext.ux.FisheyeMenuExtention = Ext.extend(Ext.ux.FisheyeMenu, {
      */
     constructor : function(config) {
         Ext.apply(this, config);
-        Ext.ux.FisheyeMenuExtention.superclass.constructor.call(this);
+        Ext.ux.FisheyeMenuExtension.superclass.constructor.call(this);
     },
 
     //------------------------------------------------------------
@@ -88,4 +88,4 @@ Ext.ux.FisheyeMenuExtention = Ext.extend(Ext.ux.FisheyeMenu, {
 		}
 	}
 
-});  // end of Ext.ux.FisheyeMenuExtention
+});  // end of Ext.ux.FisheyeMenuExtension
