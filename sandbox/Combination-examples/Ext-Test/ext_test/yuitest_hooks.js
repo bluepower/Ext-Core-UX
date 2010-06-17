@@ -3,7 +3,7 @@
 //var Y = {};
 //Y.ObjectAssert = {};
 
-YUI().use('test', function(Y) {
+YUI().use('*', function(Y) {
 	// Some hooks
 	window.Y = Y;
 	//Y.ObjectAssert.hasProperty = Y.ObjectAssert.hasKey;
