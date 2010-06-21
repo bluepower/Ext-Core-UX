@@ -1,11 +1,11 @@
 /**
  * @class Ext.test.view.uiProvider
- * A ColumnNodeUI that with refresh support and icon change.
+ * A ColumnNodeUI with refresh support and icon changing capability.
  * Based Ext.ux.tree.ColumnNodeUI ExtJS 3.2.1 sample.
  * @extends Ext.tree.TreeNodeUI
  * @author  Nicolas FERRERO (aka yhwh) for Sylogix
- * @version 1.1
- * @date	May 21, 2010
+ * @version 1.3
+ * @date	June 4, 2010
  */
 Ext.test.view.uiProvider = Ext.extend(Ext.tree.TreeNodeUI, {
     focus: Ext.emptyFn, // prevent odd scrolling behavior
@@ -23,7 +23,7 @@ Ext.test.view.uiProvider = Ext.extend(Ext.tree.TreeNodeUI, {
                 '<div class="x-tree-col" style="width:',c.width-bw,'px;">',
                     '<span class="x-tree-node-indent">',this.indentMarkup,"</span>",
                     '<img src="', this.emptyIcon, '" class="x-tree-ec-icon x-tree-elbow">',
-                    '<img src="', a.icon || this.emptyIcon, '" class="x-tree-node-icon',(a.icon ? " x-tree-node-inline-icon" : ""),(a.iconCls ? " "+a.iconCls : ""),'" unselectable="on">',
+                    '<img src="', a.icon || this.emptyIcon, '" class="',(a.icon ? " x-tree-node-inline-icon" : ""),(a.iconCls ? " "+a.iconCls : "x-tree-node-icon"),'" unselectable="on">',
                     '<a hidefocus="on" class="x-tree-node-anchor" href="',a.href ? a.href : "#",'" tabIndex="1" ',
                     a.hrefTarget ? ' target="'+a.hrefTarget+'"' : "", '>',
                     '<span unselectable="on">', n.text || (c.renderer ? c.renderer(a[c.dataIndex], n, a) : a[c.dataIndex]),"</span></a>",
@@ -53,11 +53,12 @@ Ext.test.view.uiProvider = Ext.extend(Ext.tree.TreeNodeUI, {
         this.indentNode = cs[0];
         this.ecNode = cs[1];
         this.iconNode = cs[2];
+
         this.anchor = cs[3];
         this.textNode = cs[3].firstChild;
     },
   /**
-   * Refresh Node Html Element.
+	 * Refreshes the node's HTML element.
    */
     refresh: function() {
         var n = this.node;
@@ -78,13 +79,14 @@ Ext.test.view.uiProvider = Ext.extend(Ext.tree.TreeNodeUI, {
             cells[i].firstChild.innerHTML = v;
         }
     },
-  /**
-   * Set Node icon class.
-   * @param {String} className The name of the class
-   */
+	/**
+	 * Sets the node's CSS icon class.
+	 * @param {String} className The name of the CSS class.
+	 */
     setIconElClass: function(className) {
         var n = this.node;
         if (!n.rendered) {
+            n.attributes.iconCls = className;
             return;
         }
         var iconEl = this.getIconEl();

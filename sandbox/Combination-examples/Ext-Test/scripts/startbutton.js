@@ -1,3 +1,11 @@
+/**
+ * @class Ext.test.view.StartButton
+ * A Button that run Ext.test.runner.
+ * @extends Ext.Button
+ * @author  Nicolas FERRERO (aka yhwh) for Sylogix
+ * @version 1.3
+ * @date	June 4, 2010
+ */
 Ext.test.view.StartButton = Ext.extend(Ext.Button,{
     text: 'Start',
     iconCls: 'x-tbar-page-next',
