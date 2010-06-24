@@ -5,6 +5,9 @@
 .icon-collapse-all {
     background-image: url(../images/icon-collapse-all.gif) !important;
 }
+.icon-expand-logger {
+	background-image: url(../images/icon-expand-logger.gif) !important;
+}
 
 .x-column-tree .x-panel-header {
 	padding: 3px 0px 0px 0px;

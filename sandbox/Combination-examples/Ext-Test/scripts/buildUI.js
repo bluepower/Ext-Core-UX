@@ -1,7 +1,7 @@
-Ext.onReady(function(){
+Ext.onReady(function() {
 	Ext.QuickTips.init();
 	
-	var grid = new Ext.test.view.Logger({
+	var logger = new Ext.test.view.Logger({
 		region: 'south',
 		height: 200,
 		split: true,
@@ -33,6 +33,15 @@ Ext.onReady(function(){
 					viewer.getRootNode().collapse(true);
 				}
 			},
+			'-',
+			{
+				iconCls: 'icon-expand-logger',
+				tooltip: 'Expand or Collapse Logger',
+				enableToggle: true,
+				toggleHandler: function(b, pressed) {
+					logger[pressed ? 'collapse' : 'expand']();
+				}
+			},
 			'->',
 			{
 				xtype: 'testprogressbar',
@@ -43,8 +52,8 @@ Ext.onReady(function(){
 		
 	var testViewport = new Ext.Viewport({
 		layout : 'border',
-		items : [viewer, grid]
+		items : [viewer, logger]
 	});
 		
-	testViewport.show(); 
-},this);
+	testViewport.show();
+});
