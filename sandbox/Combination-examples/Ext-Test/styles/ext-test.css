@@ -1,4 +1,11 @@
 /* START ColumnNodeUI style */
+.icon-expand-all {
+    background-image: url(../images/icon-expand-all.gif) !important;
+}
+.icon-collapse-all {
+    background-image: url(../images/icon-collapse-all.gif) !important;
+}
+
 .x-column-tree .x-panel-header {
 	padding: 3px 0px 0px 0px;
 	border-bottom-width: 0px;
