@@ -5,7 +5,8 @@ Ext.onReady(function() {
 		region: 'south',
 		height: 200,
 		split: true,
-		minSize: 100
+		minSize: 100,
+		collapseMode: 'mini'
 	});
 		
 	var viewer = new Ext.test.view.ColumnTree({
