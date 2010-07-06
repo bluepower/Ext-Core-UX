@@ -1,0 +1,108 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ExtTop - Desktop Sample App</title>
+
+    <link rel="stylesheet" type="text/css" href="http://extjs.cachefly.net/ext-3.2.1/resources/css/ext-all.css" />
+	<link rel="stylesheet" type="text/css" href="http://cz9908.com/blog/Niko-weblog-labs/lab-ExtJS/for-example/Ext-UI-Theme/themes/azenis-theme/resources/css/xtheme-azenis.css" />
+    <link rel="stylesheet" type="text/css" href="http://extjs.cachefly.net/ext-3.2.1/examples/desktop/css/desktop.css" />
+	<link rel="stylesheet" type="text/css" href="css/desktop-fisheyemenu.css" />
+
+ 	<!-- LIBS -->
+ 	<script type="text/javascript" src="http://extjs.cachefly.net/ext-3.2.1/adapter/ext/ext-base.js"></script>
+    <script type="text/javascript" src="http://extjs.cachefly.net/ext-3.2.1/ext-all.js"></script>
+
+    <!-- DESKTOP -->
+    <script type="text/javascript" src="http://extjs.cachefly.net/ext-3.2.1/examples/desktop/js/StartMenu.js"></script>
+    <script type="text/javascript" src="http://extjs.cachefly.net/ext-3.2.1/examples/desktop/js/TaskBar.js"></script>
+    <script type="text/javascript" src="http://extjs.cachefly.net/ext-3.2.1/examples/desktop/js/Desktop.js"></script>
+    <script type="text/javascript" src="http://extjs.cachefly.net/ext-3.2.1/examples/desktop/js/App.js"></script>
+    <script type="text/javascript" src="http://extjs.cachefly.net/ext-3.2.1/examples/desktop/js/Module.js"></script>
+    <script type="text/javascript" src="http://extjs.cachefly.net/ext-3.2.1/examples/desktop/sample.js"></script>
+	<script type="text/javascript" src="http://cz9908.com/blog/Niko-weblog-labs/lab-ExtJS/for-example/Ext-ux-FisheyeMenu/scripts/FisheyeMenu.js"></script>
+
+  <script type="text/javascript">
+  // <![CDATA[
+        Ext.onReady(function() {
+
+			var cfg = {
+				itemWidth : 65,
+                items : [{
+                    text: 'Clock',
+					imagePath: '../Ext-ux-FisheyeMenu/images/clock.png',
+					url: 'http://code.google.com/p/clock/'
+                }, {
+                    text: 'Map',
+					imagePath: '../Ext-ux-FisheyeMenu/images/map.png',
+					url: 'http://maps.google.com'
+                }, {
+                    text: 'Photo',
+					imagePath: '../Ext-ux-FisheyeMenu/images/photo.png',
+					url: 'http://picasaweb.google.com'
+                }, {
+                    text: 'Music',
+                    imagePath: '../Ext-ux-FisheyeMenu/images/music.png',
+					url: 'http://www.google.com/Top/Arts/Music/'
+                }, {
+                    text: 'Movie',
+                    imagePath: '../Ext-ux-FisheyeMenu/images/movie.png',
+					url: 'http://video.google.com'
+                }, {
+                    text: 'Stock',
+                    imagePath: '../Ext-ux-FisheyeMenu/images/stock.png',
+					url: 'http://www.google.com/finance'
+                }, {
+                    text: 'Calendar',
+                    imagePath: '../Ext-ux-FisheyeMenu/images/calendar.png',
+					url: 'http://www.google.com/calendar'
+                }, {
+                    text: 'SMS',
+                    imagePath: '../Ext-ux-FisheyeMenu/images/sms.png',
+					url: 'http://www.google.com/sms/'
+                }]
+            };
+
+            new Ext.ux.FisheyeMenu(Ext.apply(cfg, {
+				renderTo : 'fisheye-menu-top',
+				vAlign : 'top'
+			}));
+
+            new Ext.ux.FisheyeMenu(Ext.apply(cfg, {
+				renderTo : 'fisheye-menu-bottom',
+				vAlign : 'bottom'
+			}));
+                        
+        });
+  // ]]>
+  </script>
+
+</head>
+<body scroll="no">
+
+<div id="x-desktop">
+    <div id="fisheye-menu-top" style="z-index: 10001;"></div>
+
+    <a href="http://extjs.com" target="_blank" style="margin:5px; float:right;"><img src="images/powered.gif" /></a>
+
+    <dl id="x-shortcuts">
+        <dt id="grid-win-shortcut">
+            <a href="#"><img src="images/s.gif" />
+            <div>Grid Window</div></a>
+        </dt>
+        <dt id="acc-win-shortcut">
+            <a href="#"><img src="images/s.gif" />
+            <div>Accordion Window</div></a>
+        </dt>
+    </dl>
+</div>
+
+<div id="ux-taskbar">
+	<div id="ux-taskbar-start"></div>
+	<div id="ux-taskbuttons-panel"></div>
+	<div class="x-clear"></div>
+</div>
+
+<div id="fisheye-menu-bottom" style="margin-bottom: 30px;z-index: 10001;"></div>
+
+</body>
+</html>
