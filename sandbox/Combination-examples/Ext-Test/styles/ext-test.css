@@ -10,63 +10,62 @@
 }
 
 .x-column-tree .x-panel-header {
-	padding: 3px 0px 0px 0px;
-	border-bottom-width: 0px;
+	padding: 3px 0 0 0;
+	border-bottom-width: 0;
+	height: 20px;
 }
 
 .x-column-tree .x-panel-header .x-panel-header-text {
-	margin-left: 3px
+	margin-left: 3px;
 }
 
 .x-column-tree .x-tree-node {
-    zoom:1;
+    zoom: 1;
 }
 .x-column-tree .x-tree-node-el {
-    zoom:1;
+    zoom: 1;
 }
 .x-column-tree .x-tree-selected {
     background: #d9e8fb;
 }
 .x-column-tree  .x-tree-node a {
-    line-height:18px;
-    vertical-align:middle;
+    line-height: 18px;
+    vertical-align: middle;
 }
-.x-column-tree  .x-tree-node a span{
-	
-}
-.x-column-tree  .x-tree-node .x-tree-selected a span{
-	background:transparent;
-	color:#000;
+
+.x-column-tree .x-tree-node .x-tree-selected a span{
+	background: transparent;
+	color: #000;
 }
 .x-tree-col {
-    float:left;
-    overflow:hidden;
-    padding:0 1px;
-    zoom:1;
+    float: left;
+    overflow: hidden;
+    padding: 0 1px;
+    zoom: 1;
 }
 
 .x-tree-col-text, .x-tree-hd-text {
-    color:#000;
-    overflow:hidden;
+    color: #000;
+    overflow: hidden;
     -o-text-overflow: ellipsis;
     text-overflow: ellipsis;
-    padding:3px 3px 3px 5px;
+    padding: 3px 3px 3px 5px;
     white-space: nowrap;
-    font:normal 11px arial, tahoma, helvetica, sans-serif;
+    font: normal 11px arial, tahoma, helvetica, sans-serif;
 }
 
 .x-tree-headers {
 	margin-top: 3px;
 	background: #f9f9f9 url(../images/icon-hrow.gif) repeat-x 0 bottom;
-	cursor:default;
-    zoom:1;
+	cursor: default;
+    zoom: 1;
 }
 
 .x-tree-hd {
-    float:left;
-    overflow:hidden;
-    border-left:1px solid #eee;
-    border-right:1px solid #d0d0d0;
+    float: left;
+    overflow: hidden;
+    border-left: 1px solid #eee;
+    border-right: 1px solid #d0d0d0;
 }
 /* END ColumnNodeUI style */
 
@@ -75,7 +74,7 @@
   background-color: #1E1E1E;
 }
 .x-test-logger .x-grid3-row {
-  border-color:#1E1E1E;
+  border-color: #1E1E1E;
 }
 .x-test-logger-state-pass {
   color: #0F0;
@@ -93,28 +92,28 @@
 
 /* START columntreee icon style */
 .testsuite-failed, .testsuite-passed , .testsuite-running {
-  background-image:url(../images/icon-drop-yes.gif);
-  background-position:center center;
-  background-repeat:no-repeat;
-  border:0 none;
-  height:18px;
-  margin:0;
-  padding:0;
-  vertical-align:top;
-  width:16px;
-  line-height:18px;
+  background-image: url(../images/icon-drop-yes.gif);
+  background-position: center center;
+  background-repeat: no-repeat;
+  border: 0 none;
+  height: 18px;
+  margin: 0;
+  padding: 0;
+  vertical-align: top;
+  width: 16px;
+  line-height: 18px;
 }
 
 .testsuite-passed {
-  background-image:url(../images/icon-drop-yes.gif);
+  background-image: url(../images/icon-drop-yes.gif);
 }
 
 .testsuite-failed, .testcase-failed {
-  background-image:url(../images/icon-drop-no.gif);
+  background-image: url(../images/icon-drop-no.gif);
 }
 
 .testsuite-running {
-  background-image:url(../images/icon-loading.gif);
+  background-image: url(../images/icon-loading.gif);
 }
 /* END columntree icon style */
 
