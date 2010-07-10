@@ -4,6 +4,7 @@
  * Based on Ext.ux.tree.ColumnTree sample.
  * @extends Ext.tree.TreePanel
  * @author  Nicolas FERRERO (aka yhwh) for Sylogix
+ * @modificator Niko Ni (bluepspower@163.com)
  * @version 1.3
  * @date	June 4, 2010
  */
@@ -56,9 +57,9 @@ Ext.test.view.ColumnTree = Ext.extend(Ext.tree.TreePanel, {
             renderer: function(val, node) {
                 var color = '#000';
                 if (val == node.ownerTree.passText) {
-                    color = "#00FF00";
+                    color = "#0F0";
                 } else if (val == node.ownerTree.failText) {
-                    color = '#FF0000';
+                    color = '#F00';
                 }
                 return '<span style="color: ' + color + ';font-weight: bold;">' + val + '</span>';
             },
@@ -75,7 +76,15 @@ Ext.test.view.ColumnTree = Ext.extend(Ext.tree.TreePanel, {
             dataIndex: 'ignored',
             header: 'Ignored',
             width: 50
-        }];
+        }, {
+			dataIndex: 'details',
+			id: 'details',
+			header: 'Details',
+			width: 250,
+			renderer: function(val, node) {
+				return '<span ext:qtip="' + val + '">' + val + '</span>';
+			}
+		}];
     },
     // monitor test runner
     monitorTestRunner: function(){
@@ -165,6 +174,7 @@ Ext.test.view.ColumnTree = Ext.extend(Ext.tree.TreePanel, {
                 attr['ignored'] = '';
                 attr['errors'] = '';
                 attr['state'] = '';
+                attr['details'] = '';
                 if (attr['type'] == 'testSuite') {
                     ui.setIconElClass('x-tree-node-icon');
                 }
@@ -187,7 +197,8 @@ Ext.test.view.ColumnTree = Ext.extend(Ext.tree.TreePanel, {
             passed: '',
             failed: '',
             ignored: '',
-            errors: ''
+            errors: '',
+            details: ''
         });
     },
 	/**
@@ -218,12 +229,13 @@ Ext.test.view.ColumnTree = Ext.extend(Ext.tree.TreePanel, {
             passed: '',
             failed: '',
             ignored: '',
-            errors: ''
+            errors: '',
+            details: ''
         });
     },
 	/**
 	 * Creates an Ext.test.TestCase node and adds it to a parent Ext.tree.TreeNode.
-	 * @param {Ext.test.TestCase} ts The Ext.test.TestCase
+	 * @param {Ext.test.TestCase} tc The Ext.test.TestCase
 	 * @param {Ext.tree.TreeNode} pnode The parent Ext.tree.TreeNode
 	 */
     addCaseNode: function(tc, pnode) {
@@ -242,6 +254,9 @@ Ext.test.view.ColumnTree = Ext.extend(Ext.tree.TreePanel, {
               node.attributes['state'] = this.failText;
               node.ui.setIconElClass('testcase-failed');
               node.attributes['errors'] = event.error.getMessage();
+              var rd = node.attributes['details'];
+              var details = String.format('{0}{1}: {2}<br/>', rd || '', event.testName, event.error.toString());
+              node.attributes['details'] = details;                  
               node.ui.refresh();
               break;
           case "testcasebegin":
