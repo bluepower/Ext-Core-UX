@@ -71,10 +71,10 @@
 
 /* START Console style */
 .x-test-logger .x-grid3-scroller {
-  background-color: #1E1E1E;
+  background-color: #303030;
 }
 .x-test-logger .x-grid3-row {
-  border-color: #1E1E1E;
+  border-color: #303030;
 }
 .x-test-logger-state-pass {
   color: #0F0;

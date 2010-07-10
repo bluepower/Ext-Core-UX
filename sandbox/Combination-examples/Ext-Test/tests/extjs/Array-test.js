@@ -2,7 +2,7 @@
  * Tests Array
  * @author Niko Ni (bluepspower@163.com)
  * @create 2010-05-24
- * @update 2010-06-24
+ * @update 2010-07-10
  */
 (function() {
 
@@ -19,7 +19,13 @@
 
             testIndexOf : function() {
                 Y.Assert.areEqual(-1, [].indexOf(1), 'Test with an empty array');
-                
+                Y.Assert.areEqual(-1, [0, 1, 2].indexOf(3), 'Test with numbers where the item should not exist');
+                Y.Assert.areEqual(1, [0, 1, 2].indexOf(1), 'Test with numbers where the item should exist');
+                Y.Assert.areEqual(3, [0, 3, 2, 1, 4, 5, 6, 7, 1, 2].indexOf(1), 'Test with numbers where the item exists a number of times');
+                Y.Assert.areEqual(-1, ['x', 'y', 'z'].indexOf('X'), 'Test with strings where the item should not exist');
+                Y.Assert.areEqual(0, ['a', 'x', 'y', 'z'].indexOf('a'), 'Test with strings where the item should exist');
+                Y.Assert.areEqual(-1, [0, 1, 2].indexOf('1'), 'Test to ensure type coercion does not occur');
+
                 //@TODO
             },
 
