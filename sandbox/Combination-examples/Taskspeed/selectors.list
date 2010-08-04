@@ -1,0 +1,16 @@
+make
+indexof
+bind
+attr
+bindattr
+table
+addanchor
+append
+addclass-odd
+style
+removeclass
+sethtml
+insertbefore
+insertafter
+destroy
+finale
