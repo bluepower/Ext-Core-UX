@@ -3,5 +3,4 @@ YUI().use('*', function(Y) {
 });
 
 // Create Namespace
-Ext.ns('Ext.test');
-Ext.ns('Ext.test.view');
+Ext.ns('Ext.test', 'Ext.test.view');
