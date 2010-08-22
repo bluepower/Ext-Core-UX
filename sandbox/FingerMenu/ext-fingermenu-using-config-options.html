@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Ext Finger Menu</title>
+  <link type="text/css" rel="stylesheet" href="styles/FingerMenu.css" />
+  <!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/ext-core/3.0/ext-core.js"></script>-->
+  <script type="text/javascript" src="../../resources/scripts/ext/ext-core.js"></script>    
+  <script type="text/javascript" src="scripts/FingerMenu.js"></script>
+
+  <script type="text/javascript">
+  // <![CDATA[      
+      Ext.onReady(function() {
+          var fmenu = new Ext.ux.FingerMenu({
+              selectedIndex : 0,
+              items : [{
+                  text : 'Lightbox',
+                  iconCls : 'icon-lightbox'
+              }, {
+                  text : 'Carousel',
+                  iconCls : 'icon-carousel'
+              }, {
+                  text : 'JSONP Flickr',
+                  iconCls : 'icon-flickr'
+              }, {
+                  text : 'Tabs',
+                  iconCls : 'icon-tab'
+              }]
+           });
+          
+          fmenu.on('change', function() {
+              //...
+          });
+      });
+  // ]]>      
+  </script>
+  
+</head>
+
+<body>
+
+  <!--<div id="fingermenu-section" class="example-wrap"></div>-->
+
+</body>
+</html>

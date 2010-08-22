@@ -1,0 +1,113 @@
+body {
+    background: transparent url('../images/left.png') repeat-y left top;
+    font: 70% 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+    margin:0;
+}
+
+iframe
+{
+    margin:40px 0 0 195px;
+    width:800px;
+    height: 700px;
+    border: 1px solid #e0e0e0;
+}
+
+#t
+{
+    position:absolute;
+    left : 190px;
+    top : 5px;
+    font-size:small;
+    color: #1C417C;
+}
+
+.menu-example
+{
+    position : absolute;
+    left:0;
+    top:40px;
+}
+
+.icon-carousel
+{
+    background-image: url(../images/Carousel.png);
+}
+
+.icon-lightbox
+{
+    background-image: url(../images/Popup_32.png);
+}
+
+.icon-flickr
+{
+    background-image: url(../images/flickr-32x32.png);
+}
+
+.icon-tab
+{
+    background-image: url(../images/tab.png);
+}
+
+
+/*
+ *  Menu container
+ */
+.fingermenu-panel {
+    width:200px;
+}
+
+/*
+ *   Menu item container
+ */
+.fingermenu-panel div
+{
+    height:40px;
+    margin-top:2px;
+    padding:0;
+    cursor: pointer;
+    background: url(../images/wt-right.png) no-repeat right top;
+}
+
+/*
+ *  Menu text item
+ */
+.fingermenu-panel span {
+    color: #1C417C;
+    height:32px;
+    float:right;
+    padding-top:9px;
+    padding-right:38px;
+    font-weight:bold;
+    white-space:nowrap;
+}
+
+/*
+ *  Active item, hover
+ */
+.fingermenu-panel div:hover,
+.fingermenu-panel div.fingermenu-show
+{
+    background: url(../images/wt-right-on.png) no-repeat right top;
+}
+
+/*
+ *  Base class for icons
+ */
+.fingermenu-icon
+{
+    /*background:transparent no-repeat right 3px;*/
+    background-repeat: no-repeat;
+    background-position: right 3px;
+    margin-right:5px;
+}
+
+
+/* styles for FingerMenu widget */
+/*
+.ux-fingermenu-container { clear: both; }
+.ext-ie .clearfix { zoom: 1; }
+.clearfix:after { content: ".";display: block;height: 0;clear: both;visibility: hidden; }
+*/
+
+/* styles for examples */
+.example-wrap { margin-top: 20px; }
