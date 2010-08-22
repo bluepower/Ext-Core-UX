@@ -1,0 +1,17 @@
+@description Test tool based on Ext JS and YUI Test
+
+@author Niko Ni (bluepspower@163.com)
+
+@since 2010-05-25
+
+@base-lib ext-js, yui-test
+http://www.extjs.com/products/js/
+http://developer.yahoo.com/yui/3/test/
+
+@link
+Ext Unit Test
+http://cz9908.com/showcase/?item=Ext-Unit-Test&p=1
+
+@demo
+-ExtTestTool
+http://cz9908.com/showcase/?item=Ext-Unit-Test&p=1
