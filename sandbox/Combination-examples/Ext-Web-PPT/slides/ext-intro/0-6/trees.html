@@ -1,0 +1,19 @@
+<h3>TreePanel</h3>
+
+<div style="text-align:center;"><img src="slides/ext-intro/0-6/build-tree.gif" /></div>
+
+<p>Example of a basic TreePanel:</p>
+<pre>
+	var tree = new Ext.tree.TreePanel({
+		title: 'Categories',
+		renderTo: document.body,
+		loader: new Ext.tree.TreeLoader({
+			url: 'sample.json'
+		}),
+		root: new Ext.tree.AsyncTreeNode({
+		    text: 'Categories',
+			id: 'categories',
+			expanded: true
+		})
+	});
+</pre>
