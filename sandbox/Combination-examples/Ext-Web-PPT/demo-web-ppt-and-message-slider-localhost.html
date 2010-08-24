@@ -31,11 +31,9 @@
                 intervalTime : 5,
                 items : [{
                     content: '<img src="images/ext-site-logo.gif" />',
-                    url: 'http://extjs.com',
                     tip: 'Welcome to ExtJS.com'
                 }, {
                     content: 'Ext Carousel example &raquo;',
-                    url: 'http://extjs.com/playpen/ext-core-latest/examples/carousel/',
                     tip: 'The Carousel example provides a widget for browsing a set of objects',
                     target: 'show-example'
                 }]
@@ -43,20 +41,12 @@
 
             ms.on('change', function(obj, index) {
 				var content = Ext.getCmp('content');
-                switch(index) {
-                    case 0:
-                        Ext.getDom('show-example').src = 'http://extjs.com/playpen/ext-core-latest/examples/carousel/';
-                        break;
-                    case 1:
-                        Ext.getDom('show-example').src = 'http://extjs.com/playpen/ext-core-latest/examples/jsonp/';
-                        break;
-                    case 2:
-                        window.open('http://extjs.com/products/extcore/docs/', '_blank');
-                        break;
-                    case 3:
-                        window.open('http://extjs.com', '_blank');
-                        break;
-                }
+					rootNodeAttrs = Ext.getCmp('moduleTree').root.item(0).attributes,
+					rootPath = rootNodeAttrs.folder,
+					childNodes = rootNodeAttrs.children,
+					slidePath = rootPath + '/' + childNodes[index].filename;
+				
+				content.load(slidePath);
             });
 		});
 	</script>
