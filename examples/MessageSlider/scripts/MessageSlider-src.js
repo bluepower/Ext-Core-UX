@@ -30,9 +30,10 @@ Ext.ns('Ext.ux');
  * @extends-ext Ext.util.Observable
  * @author Niko Ni (bluepspower@163.com)
  * @demo http://cz9908.com/showcase/?item=message-slider&p=1
+ * @demo-extra http://cz9908.com/showcase/?item=Ext-Web-PPT&p=1
  * @version v0.5
  * @create 2009-06-20
- * @update 2010-02-14
+ * @update 2010-08-24
  * 
  * // Example object item:
  * {
