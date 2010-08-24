@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Ext Web PPT - localhost</title>
+
+	<!-- START ExtJS v3.2.1 -->
+	<link rel="stylesheet" type="text/css" href="../../../../Ext-JS-v3.2.1/resources/css/ext-all.css" />
+	<link rel="stylesheet" type="text/css" href="../../../../Ext-UI-Theme/themes/azenis-theme/resources/css/xtheme-azenis.css" />
+	<script type="text/javascript" src="../../../../Ext-JS-v3.2.1/adapter/ext/ext-base.js"></script>
+	<script type="text/javascript" src="../../../../Ext-JS-v3.2.1/ext-all.js"></script>
+	<!-- END ExtJS v3.2.1 -->
+
+	<!-- START Ext Web PPT -->
+	<link type="text/css" rel="stylesheet" href="styles/MessageSlider.css" />
+	<link rel="stylesheet" type="text/css" href="styles/ext-web-ppt.css" />
+	<script type="text/javascript" src="scripts/TreeOutliner.js"></script>
+	<script type="text/javascript" src="scripts/WebPPT.js"></script>
+	<script type="text/javascript" src="scripts/MessageSlider.js"></script>
+
+	<script type="text/javascript">
+		Ext.onReady(function() {
+			new App.WebPPT({
+				rootPath: 'slides/ext-intro',
+				rootSlide: '00/splash-page.html',
+				dataUrl: 'slide-data.json'		
+			});
+
+            var ms = new Ext.ux.MessageSlider({
+			    renderTo : 'msg-slider-section',
+                intervalTime : 5,
+                items : [{
+                    content: '<img src="images/ext-site-logo.gif" />',
+                    url: 'http://extjs.com',
+                    tip: 'Welcome to ExtJS.com'
+                }, {
+                    content: 'Ext Carousel example &raquo;',
+                    url: 'http://extjs.com/playpen/ext-core-latest/examples/carousel/',
+                    tip: 'The Carousel example provides a widget for browsing a set of objects',
+                    target: 'show-example'
+                }]
+            });
+
+            ms.on('change', function(obj, index) {
+				var content = Ext.getCmp('content');
+                switch(index) {
+                    case 0:
+                        Ext.getDom('show-example').src = 'http://extjs.com/playpen/ext-core-latest/examples/carousel/';
+                        break;
+                    case 1:
+                        Ext.getDom('show-example').src = 'http://extjs.com/playpen/ext-core-latest/examples/jsonp/';
+                        break;
+                    case 2:
+                        window.open('http://extjs.com/products/extcore/docs/', '_blank');
+                        break;
+                    case 3:
+                        window.open('http://extjs.com', '_blank');
+                        break;
+                }
+            });
+		});
+	</script>
+	<!-- END Ext Web PPT -->
+
+  </head>
+  <body>
+
+    <div id="msg-slider-section"></div>
+
+  </body>
+</html>

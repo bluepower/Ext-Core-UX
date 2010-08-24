@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Ext Web PPT - localhost</title>
+
+	<!-- START ExtJS v3.2.1 -->
+	<link rel="stylesheet" type="text/css" href="../../../../Ext-JS-v3.2.1/resources/css/ext-all.css" />
+	<link rel="stylesheet" type="text/css" href="../../../../Ext-UI-Theme/themes/azenis-theme/resources/css/xtheme-azenis.css" />
+	<script type="text/javascript" src="../../../../Ext-JS-v3.2.1/adapter/ext/ext-base.js"></script>
+	<script type="text/javascript" src="../../../../Ext-JS-v3.2.1/ext-all.js"></script>
+	<!-- END ExtJS v3.2.1 -->
+
+	<!-- START Ext Web PPT -->
+	<link rel="stylesheet" type="text/css" href="styles/ext-web-ppt.css" />
+	<script type="text/javascript" src="scripts/TreeOutliner.js"></script>
+	<script type="text/javascript" src="scripts/WebPPT.js"></script>
+
+	<script type="text/javascript">
+		Ext.onReady(function() {
+			new App.WebPPT({
+				rootPath: 'slides/ext-intro',
+				rootSlide: '00/splash-page.html',
+				dataUrl: 'slide-data.json'			
+			});
+		});
+	</script>
+	<!-- END Ext Web PPT -->
+
+  </head>
+  <body>
+  </body>
+</html>
