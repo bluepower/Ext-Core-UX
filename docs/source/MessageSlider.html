@@ -44,7 +44,7 @@ Ext.ns('Ext.ux');
  * 
  * // Example object item:
  * {
- *     content: 'some content',
+ *     content: 'some content/text',
  *     url: 'some url (optional)',
  *     tip: 'some tip (optional)',
  *     target: 'target element (optional)'
@@ -152,12 +152,14 @@ Ext.ux.MessageSlider = Ext.extend(Ext.util.Observable, {
         });
 
         // message link element
-        var currItem = this.activeItem;
+        var currItem = this.activeItem,
+            currContent = currItem.content || currItem.text;
+        
         this.innerEl.createChild({
             tag : 'a',
             href : currItem.url || '#',
-            html : currItem.content,
-            title : currItem.tip || currItem.content,
+            html : currContent,
+            title : currItem.tip || currContent,
             target : currItem.target || '_blank'
         });
     },
@@ -223,11 +225,12 @@ Ext.ux.MessageSlider = Ext.extend(Ext.util.Observable, {
     updateMsg : function() {
         // update message
         var currItem = this.activeItem,
-			linkEl = this.innerEl.child('a');
+			linkEl = this.innerEl.child('a'),
+            currContent = currItem.content || currItem.text;
 
-        linkEl.update(currItem.content);
+        linkEl.update(currContent);
         linkEl.dom.href = currItem.url || '#';
-        linkEl.dom.title = currItem.tip || currItem.content;
+        linkEl.dom.title = currItem.tip || currContent;
         linkEl.dom.target = currItem.target || '_blank';
         
         this.containerEl.slideIn('b', {

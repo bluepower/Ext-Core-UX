@@ -28,7 +28,7 @@ html, body {
 }
 #header{
    border:0 none;
-   background:#1E4176 url(hd-bg.gif) repeat-x 0 0;
+   background:#1E4176 url(bg-header.gif) repeat-x 0 0;
    padding-top:3px;
    padding-left:3px;
 }
