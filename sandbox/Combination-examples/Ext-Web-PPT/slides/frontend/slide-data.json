@@ -1,0 +1,14 @@
+[
+	{href: '', id: 'first', text: 'Front-end', folder: 'slides/frontend', children: [
+		{text: 'About cross domain', leaf: true, filename: '0-1/about-cross-domain.html'},
+		{text: 'HTTP statusCode + readyState', leaf: true, filename: '0-2/2.html'},
+		{text: 'Steps to write raw Ajax', leaf: true, filename: '0-3/3.html'},
+		{text: 'JS url encode + charset', leaf: true, filename: '0-4/4.html'},		
+		{text: 'CSS box model', leaf: true, filename: '0-5/5.html'},
+		{text: 'Frontend dev workflow', leaf: true, filename: '0-6/6.html'},		
+		{text: 'Frontend performance tuning', leaf: true, filename: '0-7/7.html', exampleUrl: 'http://developer.yahoo.com/performance/rules.html'},
+		{text: 'JS prototype based inheritence', leaf: true, filename: '0-8/8.html'},
+		{text: 'Cross browser compatibility', leaf: true, filename: '0-9/9.html'},
+		{text: 'About html5 + css3', leaf: true, filename: '0-10/10.html'}
+	]}
+]
