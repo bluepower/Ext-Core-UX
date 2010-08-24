@@ -16,38 +16,29 @@
 	<link rel="stylesheet" type="text/css" href="styles/ext-web-ppt.css" />
 	<script type="text/javascript" src="scripts/TreeOutliner.js"></script>
 	<script type="text/javascript" src="scripts/WebPPT.js"></script>
-	<script type="text/javascript" src="../../../examples/MessageSlider/scripts/MessageSlider.js"></script>
+	<script type="text/javascript" src="../../../examples/MessageSlider/scripts/MessageSlider-src.js"></script>
 
 	<script type="text/javascript">
 		Ext.onReady(function() {
 			new App.WebPPT({
 				rootPath: 'slides/ext-intro',
 				rootSlide: '0-0/splash-page.html',
-				dataUrl: 'slide-data.json'		
+				dataUrl: 'slide-data.json',
+                callback: function() {
+                    var ms = new Ext.ux.MessageSlider({
+                        renderTo : 'msg-slider-section',
+                        intervalTime : 5,
+                        items : App.arrItems
+                    });
+                    ms.on('change', function(obj, index) {
+                        var content = Ext.getCmp('content'),
+                            rootNodeAttrs = Ext.getCmp('moduleTree').root.item(0).attributes,
+                            slidePath = rootNodeAttrs.folder + '/' + App.arrItems[index].filename;
+
+                        content.load(slidePath);
+                    });
+                }
 			});
-
-            var ms = new Ext.ux.MessageSlider({
-			    renderTo : 'msg-slider-section',
-                intervalTime : 5,
-                items : [{
-                    content: '<img src="images/ext-site-logo.gif" />',
-                    tip: 'Welcome to ExtJS.com'
-                }, {
-                    content: 'Ext Carousel example &raquo;',
-                    tip: 'The Carousel example provides a widget for browsing a set of objects',
-                    target: 'show-example'
-                }]
-            });
-
-            ms.on('change', function(obj, index) {
-				var content = Ext.getCmp('content'),
-					rootNodeAttrs = Ext.getCmp('moduleTree').root.item(0).attributes,
-					rootPath = rootNodeAttrs.folder,
-					childNodes = rootNodeAttrs.children,
-					slidePath = rootPath + '/' + childNodes[index].filename;
-				
-				content.load(slidePath);
-            });
 		});
 	</script>
 	<!-- END Ext Web PPT -->

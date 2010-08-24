@@ -1,5 +1,7 @@
 Ext.ns('App');
 
+App.arrItems = [];
+
 App.WebPPT = function(config) {
 	var rootPath = config.rootPath,
 		slideTreeData = rootPath + '/' + config.dataUrl,
@@ -104,10 +106,20 @@ App.WebPPT = function(config) {
 		}]
 	});
 
-	var moduleSm = Ext.getCmp('moduleTree').getSelectionModel();
-	moduleSm.on('selectionchange', this.onSelectionChange, this, {buffer: 100});
+    var tp = Ext.getCmp('moduleTree'),
+        moduleSm = tp.getSelectionModel(),
+        fnCallback = config.callback;
 
-	Ext.getCmp('moduleTree').expandAll();
+    if(typeof fnCallback == 'function') {
+        tp.getLoader().on('load', function() {
+            App.arrItems = tp.root.item(0).attributes.children;
+            fnCallback();
+        });
+    }
+    
+    moduleSm.on('selectionchange', this.onSelectionChange, this, {buffer: 100});
+
+	tp.expandAll();
 };
 
 Ext.extend(App.WebPPT, Ext.Viewport, {
@@ -124,7 +136,6 @@ Ext.extend(App.WebPPT, Ext.Viewport, {
 			}
 		} else if (depth === 2) {
 			var idx = node.parentNode.indexOf(node);
-			var pageNum = idx + 1;
 			var folderName = node.parentNode.attributes.folder;
 			var page = String.format('{0}/{1}', folderName, node.attributes.filename);
 			content.load(page);
