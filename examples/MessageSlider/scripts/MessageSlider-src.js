@@ -36,7 +36,7 @@ Ext.ns('Ext.ux');
  * 
  * // Example object item:
  * {
- *     content: 'some content',
+ *     content: 'some content/text',
  *     url: 'some url (optional)',
  *     tip: 'some tip (optional)',
  *     target: 'target element (optional)'
