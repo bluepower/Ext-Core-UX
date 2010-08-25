@@ -1,12 +1,9 @@
 Ext.ns('App');
 
+App.rootFolder = '';
 App.arrItems = [];
 
 App.WebPPT = function(config) {
-	var rootPath = config.rootPath,
-		slideTreeData = rootPath + '/' + config.dataUrl,
-		defaultSlide = rootPath + '/' + config.rootSlide;
-
 	Ext.BLANK_IMAGE_URL = 'images/s.gif';
     Ext.QuickTips.init();
 
@@ -17,7 +14,7 @@ App.WebPPT = function(config) {
 			id: 'web-ppt-header',
 			height: 40,
 			border: false,
-			html: (config.title || 'Ext Web PPT')
+			html: (config.title || '&#160;')
 		},{
 			region: 'west',
 			autoScroll: true,
@@ -38,7 +35,7 @@ App.WebPPT = function(config) {
 			rootVisible: false,
 			root: new Ext.tree.AsyncTreeNode(),
 			loader: new Ext.tree.TreeLoader({
-				url: slideTreeData
+				url: config.dataUrl
 			}),
 			bbar: [{
                 tooltip: 'Expand all folders',
@@ -57,7 +54,6 @@ App.WebPPT = function(config) {
 			region: 'center',
 			id: 'content',
 			autoScroll: true,
-			autoLoad: defaultSlide,
 			bbar: [{
                 tooltip: 'Display options',
                 iconCls: 'options',
@@ -110,12 +106,20 @@ App.WebPPT = function(config) {
         moduleSm = tp.getSelectionModel(),
         fnCallback = config.callback;
 
-    if(typeof fnCallback == 'function') {
-        tp.getLoader().on('load', function() {
-            App.arrItems = tp.root.item(0).attributes.children;
-            fnCallback();
-        });
-    }
+	tp.getLoader().on('load', function() {
+		var firstNodeItem = tp.root.item(0).attributes;
+
+		// fetch root folder
+		App.rootFolder = firstNodeItem.folder;
+
+		// load default slide
+		Ext.getCmp('content').load(App.rootFolder + '/' + firstNodeItem.filename);
+
+		if(typeof fnCallback == 'function') {
+			App.arrItems = firstNodeItem.children;
+			fnCallback();
+		}
+	});
     
     moduleSm.on('selectionchange', this.onSelectionChange, this, {buffer: 100});
 

@@ -19,14 +19,10 @@
 	<script type="text/javascript" src="../../../examples/MessageSlider/scripts/MessageSlider.js"></script>
 
 	<script type="text/javascript">
-		Ext.onReady(function() {
-            var rootFolder = 'slides/frontend';
-            
+		Ext.onReady(function() {            
 			new App.WebPPT({
 				title: '<a href="#" class="top-title">Frontend Web PPT</a>',
-				rootPath: rootFolder,
-				rootSlide: '0-0/default-slide.html',
-				dataUrl: 'slide-data.json',
+				dataUrl: 'slides/frontend/slide-data.json',
                 callback: function() {
                     var ms = new Ext.ux.MessageSlider({
                         renderTo : 'msg-slider-section',
@@ -40,7 +36,7 @@
 							nodeItem = App.arrItems[index],
 							nodeId = nodeItem.id,
 							nodePath = tp.getNodeById(nodeId).getPath(),
-                            slidePath = rootFolder + '/' + nodeItem.filename;
+                            slidePath = App.rootFolder + '/' + nodeItem.filename;
 
                         content.load(slidePath);
 						tp.selectPath(nodePath);
