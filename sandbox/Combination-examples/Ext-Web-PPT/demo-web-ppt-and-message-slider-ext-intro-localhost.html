@@ -33,11 +33,17 @@
                         intervalTime : 5,
                         items : App.arrItems
                     });
+
                     ms.on('change', function(obj, index) {
                         var content = Ext.getCmp('content'),
-                            slidePath = rootFolder + '/' + App.arrItems[index].filename;
+							tp = Ext.getCmp('moduleTree'),
+							nodeItem = App.arrItems[index],
+							nodeId = nodeItem.id,
+							nodePath = tp.getNodeById(nodeId).getPath(),
+                            slidePath = rootFolder + '/' + nodeItem.filename;
 
                         content.load(slidePath);
+						tp.selectPath(nodePath);
                     });
                 }
 			});
