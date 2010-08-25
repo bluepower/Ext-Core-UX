@@ -164,7 +164,7 @@ Ext.extend(App.WebPPT, Ext.Viewport, {
     toggleFullScreen: function() {
         var method = this.fullScreen ? 'show' : 'hide';
         Ext.getCmp('moduleTree')[method]();
-        Ext.getCmp('ext-training-header')[method]();
+        Ext.getCmp('web-ppt-header')[method]();
         Ext.getCmp('moduleTree').ownerCt.doLayout();
         var t = Ext.getCmp('toggle');
         t.setIconClass(this.fullScreen ? 'screen-maximize' : 'screen-restore');
