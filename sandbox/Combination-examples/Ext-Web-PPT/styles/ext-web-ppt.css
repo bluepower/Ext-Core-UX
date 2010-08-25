@@ -63,7 +63,7 @@
 	margin: 10px; 
 }
 
-#content h1, #content h2, #content h3 {
+#content h1, #content h2, #content h3, #content h4 {
     clear: both;
 	text-align: center;
 	color: #1860A8;
@@ -82,6 +82,13 @@
 	padding: 8px 15px;
 	text-align: left;
 	font-size: 130%;
+}
+#content h4 {
+	background: #ECECEC;
+	padding: 5px 15px;
+	text-align: left;
+	font-size: 110%;
+	font-weight: bold;
 }
 
 #content pre {
@@ -148,6 +155,16 @@
 }
 .screen-restore {
     background: url(../images/restore.png) no-repeat;
+}
+
+.ref-wrap {
+	margin: 20px;
+	border: 1px solid #2F6FAB;
+}
+
+#content .ref-wrap h3 {
+	padding: 5px 15px;
+	font-size: 100%;
 }
 
 #msg-slider-section {
