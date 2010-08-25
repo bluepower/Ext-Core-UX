@@ -17,7 +17,7 @@ App.WebPPT = function(config) {
 			id: 'web-ppt-header',
 			height: 40,
 			border: false,
-			html: '<a href="#" id="ext-logo">Ext Web PPT</a>'
+			html: (config.title || 'Ext Web PPT')
 		},{
 			region: 'west',
 			autoScroll: true,

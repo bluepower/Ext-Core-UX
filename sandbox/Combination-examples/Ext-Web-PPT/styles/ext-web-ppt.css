@@ -1,10 +1,10 @@
 .x-tree-node, #content .x-panel-body {
 	font-family: 'lucida grande',helvetica,tahoma,Arial,sans-serif;
 }
-#ext-logo {
+.top-title,#ext-logo {
 	font-family: 'lucida grande',helvetica,tahoma,Arial,sans-serif;
 	color: #fff;
-	font-size: 22px;
+	font-size: 130%;
 	padding: 5px 15px;
 	text-decoration: none;
 	float: left;	
