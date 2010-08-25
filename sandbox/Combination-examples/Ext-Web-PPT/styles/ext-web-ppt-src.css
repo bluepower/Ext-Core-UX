@@ -1,0 +1,174 @@
+.x-tree-node, #content .x-panel-body {
+	font-family: 'lucida grande',helvetica,tahoma,Arial,sans-serif;
+}
+.top-title,#ext-logo {
+	font-family: 'lucida grande',helvetica,tahoma,Arial,sans-serif;
+	color: #fff;
+	font-size: 130%;
+	padding: 5px 15px;
+	text-decoration: none;
+	float: left;	
+}
+#web-ppt-header .x-panel-body {
+	background: #2F3336 url(../images/bg-header.gif) repeat-x top left;
+    border-bottom: 1px solid #EDEEF0;
+}
+
+#content {
+	font-size: 14px;
+	padding:0;
+	z-index: 10;
+}
+#content strong {
+	font-weight: bold;
+}
+#content p {
+	margin: 0 20px;
+}
+#content table.inner {
+	margin: 0 20px;
+	padding:0;
+	border:1px solid #ccc;
+	border-collapse: collapse;
+}
+#content table.inner th {
+	background: #eee;
+}
+#content table.inner th,
+#content table.inner td {
+	vertical-align: top;
+	padding:3px 5px;
+	border-bottom:1px solid #ddd;
+}
+#content table.inner tr.last td {
+	border-bottom: none;
+}
+#content table.inner th {
+	font-weight: bold;
+}
+#content ul {
+	display: block; 
+	list-style-type: disc;
+	margin: 0 20px 15px 30px; 
+    font-size: 0.9em;
+    color: #555;
+}
+#content ol {
+	display: block; 
+	list-style-type: decimal; 
+	margin: 0 20px 15px 30px;
+}
+#content li { 
+	display: list-item;
+	margin: 10px; 
+}
+
+#content h1, #content h2, #content h3, #content h4 {
+    clear: both;
+	text-align: center;
+	color: #1860A8;
+	margin-bottom: 10px;
+    font-weight: normal;
+}
+#content h1 {
+	font-size: 250%;
+}
+#content h2 {
+	font-size: 160%;
+}
+#content h3 {
+	background: #ECECEC;
+	border-bottom:1px solid #aaa;
+	padding: 8px 15px;
+	text-align: left;
+	font-size: 130%;
+}
+#content h4 {
+	background: #ECECEC;
+	padding: 5px 15px;
+	text-align: left;
+	font-size: 110%;
+	font-weight: bold;
+}
+
+#content pre {
+	padding: 1em 1.5em;
+	font-size: 100%;
+	border: 1px solid #2f6fab;
+	color: #555;
+	background-color: #f9f9f9;
+	margin: 10px 20px;
+}
+
+.error {
+	color: #f00;
+}
+.box {
+	border:2px solid blue;
+	width:200px;
+	height:200px;
+	margin:20px;		
+	float:left;
+	padding:10px;
+}
+.imgWrapper {
+	float: left;
+	position: relative;
+	left: 50%;
+}
+
+.imgCtr {
+	position: relative;
+	left: -50%;
+}
+
+/* button icons */
+/* Note: !important is needed on buttons to override the default button background rule */
+.tree-expand {
+    background: url(../images/icon-expand-all.gif) no-repeat !important;
+}
+.tree-collapse {
+    background: url(../images/icon-collapse-all.gif) no-repeat !important;
+}
+.nav-prev {
+    background: url(../images/previous.png) no-repeat !important;
+}
+.nav-next {
+    background: url(../images/next.png) no-repeat right !important;
+}
+.options {
+    background: url(../images/options.png) no-repeat !important;
+}
+
+/* menu item icons */
+.font-inc {
+    background: url(../images/font-inc.png) no-repeat;
+}
+.font-dec {
+    background: url(../images/font-dec.png) no-repeat;
+}
+.font-reset {
+    background: url(../images/font.png) no-repeat;
+}
+.screen-maximize {
+    background: url(../images/maximize.png) no-repeat;
+}
+.screen-restore {
+    background: url(../images/restore.png) no-repeat;
+}
+
+.ref-wrap {
+	margin: 20px;
+	border: 1px solid #2F6FAB;
+}
+
+#content .ref-wrap h3 {
+	padding: 5px 15px;
+	font-size: 100%;
+}
+
+#msg-slider-section {
+    top: 9px;
+    left: 760px;
+    z-index: 1;
+}
