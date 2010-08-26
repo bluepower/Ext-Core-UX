@@ -9,10 +9,11 @@
 		{text: 'Frontend performance tuning', leaf: true, filename: '0-7/frontend-performance.html', exampleUrl: 'http://developer.yahoo.com/performance/rules.html'},
 		{text: 'JS prototype based inheritence', leaf: true, filename: '0-8/8.html'},
 		{text: 'Cross browser compatibility', leaf: true, filename: '0-9/9.html'},
-		{text: 'About html5 + css3', leaf: true, filename: '0-10/10.html'},
+		{text: 'About HTML5 + CSS3', leaf: true, filename: '0-10/10.html'},
 		{text: 'Function bind and closure', leaf: true, filename: '0-11/11.html'},
 		{text: 'Memory leak in browser', leaf: true, filename: '0-12/12.html'},
-		{text: 'About JavaScript engine', leaf: true, filename: '0-13/13.html'},
-		{text: 'About Frontend books', leaf: true, filename: '0-14/14.html'}
+		{text: 'About JavaScript Engine', leaf: true, filename: '0-13/13.html'},
+		{text: 'About Frontend Books', leaf: true, filename: '0-14/14.html'},
+		{text: 'Web Sniffer Tools', leaf: true, filename: '0-15/web-sniffer.html'}
 	]}
 ]
