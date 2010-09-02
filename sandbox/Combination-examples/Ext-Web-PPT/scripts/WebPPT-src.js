@@ -1,8 +1,16 @@
+// namespace
 Ext.ns('App');
 
 App.rootFolder = '';
 App.arrItems = [];
 
+/*!
+ * @class App.WebPPT
+ * @author Niko Ni (bluepspower@163.com)
+ * @version v0.2
+ * @create 2010-08-25
+ * @update 2010-09-02
+ */
 App.WebPPT = function(config) {
 	Ext.BLANK_IMAGE_URL = 'images/s.gif';
     Ext.QuickTips.init();
@@ -104,8 +112,13 @@ App.WebPPT = function(config) {
 
     var tp = Ext.getCmp('moduleTree'),
         moduleSm = tp.getSelectionModel(),
-        fnCallback = config.callback;
+        fnCallback = config.callback,
+		tree = moduleSm.tree;
 
+	// stop tree keydown listener
+	tree.mun(tree.getTreeEl(), 'keydown', moduleSm.onKeyDown, moduleSm);
+
+	// do something when tree loader completed
 	tp.getLoader().on('load', function() {
 		var firstNodeItem = tp.root.item(0).attributes;
 
@@ -115,6 +128,7 @@ App.WebPPT = function(config) {
 		// load default slide
 		Ext.getCmp('content').load(App.rootFolder + '/' + firstNodeItem.filename);
 
+		// whether to exec the callback config
 		if(typeof fnCallback == 'function') {
 			App.arrItems = firstNodeItem.children;
 			fnCallback();
@@ -124,6 +138,23 @@ App.WebPPT = function(config) {
     moduleSm.on('selectionchange', this.onSelectionChange, this, {buffer: 100});
 
 	tp.expandAll();
+
+	// for keydown events
+	Ext.get(document).on('keydown', function(e) {
+		var k = e.getKey();
+		switch(k) {
+			case e.DOWN:
+			case e.RIGHT:
+				e.stopEvent();
+				moduleSm.selectNext();
+			break;
+			case e.UP:
+			case e.LEFT:
+				e.stopEvent();
+				moduleSm.selectPrevious();
+			break;
+		}
+	});
 };
 
 Ext.extend(App.WebPPT, Ext.Viewport, {
