@@ -1,20 +1,39 @@
-/**
- * Code rewrite for study and exercise
- * The MIT License
- */
+/*
+The MIT License
+
+Copyright (c) 2009-2010 Niko Ni (bluepspower@163.com)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+*/
 
 // namespace
-Ext.ns('NUI');
+Ext.ns('Ext.ux');
 
 /**
- * @class NUI.Rating
- *
+ * @class Ext.ux.Rating
+ * @extends-ext Ext.util.Observable
  * @author Niko Ni (bluepspower@163.com)
- * @version v0.8
+ * @version v0.9
  * @create 2009-06-15
- * @update 2009-06-20
+ * @update 2010-09-02
  */
-NUI.Rating = Ext.extend(Ext.util.Observable, {
+Ext.ux.Rating = Ext.extend(Ext.util.Observable, {
     //------------------------------------------------------------
     // config options
     //------------------------------------------------------------
@@ -53,10 +72,13 @@ NUI.Rating = Ext.extend(Ext.util.Observable, {
      */
     constructor : function(el, config) {
         Ext.apply(this, config);
-        NUI.Rating.superclass.constructor.call(this);
+        Ext.ux.Rating.superclass.constructor.call(this);
 
         // add custom event
-        this.addEvents('change', 'reset');
+        this.addEvents(
+            'change',
+            'reset'
+        );
 
         // initialize
         this.init(el);
@@ -201,29 +223,23 @@ NUI.Rating = Ext.extend(Ext.util.Observable, {
      * @private
      */
     onStarClick : function(ev, t) {
-        //if(!this.disabled) {
-            this.select(this.stars.indexOf(t));
-        //}
+        this.select(this.stars.indexOf(t));
     },
 
     /**
      * @private
      */
     onStarOver : function(ev, t) {
-        //if(!this.disabled) {
-            this.hoverState = true;
-            this.fill(this.stars.indexOf(t));
-        //}
+        this.hoverState = true;
+        this.fill(this.stars.indexOf(t), 'hover');
     },
 
     /**
      * @private
      */
     onStarOut : function(ev, t) {
-        //if(!this.disabled) {
-            this.hoverState = false;
-            this.fill(this.currSelectedIndex);
-        //}
+        this.hoverState = false;
+        this.fill(this.currSelectedIndex);
     },    
 
     /**
@@ -255,17 +271,25 @@ NUI.Rating = Ext.extend(Ext.util.Observable, {
     /**
      * @private
      */
-    fill : function(index) {
+    fill : function(index, flag) {
         var addCls = this.hoverState ? 'ux-rating-star-hover' : 'ux-rating-star-on';
         var removeCls = this.hoverState ? 'ux-rating-star-on' : 'ux-rating-star-hover';
 
         if(index != -1) {
             Ext.each(this.stars.slice(0, index + 1), function() {
-                Ext.fly(this).removeClass(removeCls).addClass(addCls);
+                if(!flag) {
+                    Ext.fly(this).removeClass(removeCls).addClass(addCls);
+                } else {
+                    Ext.fly(this).replaceClass(removeCls, addCls);
+                }
             });
 
             Ext.each(this.stars.slice(index + 1), function() {
-                Ext.fly(this).removeClass([removeCls, addCls]);
+                if(!flag) {
+                    Ext.fly(this).removeClass([removeCls, addCls]);
+                } else {
+                    Ext.fly(this).removeClass(addCls);
+                }
             });
         } else {
             this.containerEl.select('div.ux-rating-star').removeClass([removeCls, addCls]);
@@ -303,4 +327,4 @@ NUI.Rating = Ext.extend(Ext.util.Observable, {
             this.containerEl.un(eventsConfig);
         }
     }
-});  // end of NUI.Rating
+});  // end of Ext.ux.Rating
