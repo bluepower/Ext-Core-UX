@@ -1,0 +1,69 @@
+/* styles for CSS Reset */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote{margin:0;padding:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}ol,ul {list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;}
+
+/* styles for examples */
+.example-wrap {
+	padding: 10px;
+	border-bottom: 1px dashed #555;
+}
+
+/* styles for StarRating */
+.ux-rating-container {
+    clear: both;
+}
+
+.ux-rating-reset, .ux-rating-star {
+    float: left;
+    width: 17px;
+    height: 16px;
+    text-indent: -999em;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.ux-rating-reset a, .ux-rating-star a {
+    width: 16px;
+    height: 16px;
+    display: block;
+}
+
+.ux-rating-reset a, .ux-rating-star a {
+    background-image: url(../images/rating-sprites.gif);
+    background-repeat: no-repeat;
+}
+
+.ux-rating-reset a {
+    background-position: -16px 0;
+}
+
+.ux-rating-star a {
+    background-position: 0 0;
+}
+
+.ux-rating-star-hover a {
+    background-position: 0 -32px;
+}
+
+.ux-rating-star-on a {
+    background-position: 0 -16px;
+}
+
+.ux-rating-reset-hover a {
+    background-position: -16px -16px;
+}
+
+.ux-rating-disabled a {
+    cursor: default;
+}
+
+.ext-ie .clearfix {
+    zoom: 1;
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}

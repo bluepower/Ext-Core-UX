@@ -2,45 +2,19 @@
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <title>Ext StarRating UX by Niko Ni</title>
+  <title>Ext StarRating by Niko Ni</title>
   <link type="text/css" rel="stylesheet" href="styles/StarRating.css" />
   <script type="text/javascript" src="../../../Ext-JS-Core-v3.1.0/ext-core.js"></script>
   <script type="text/javascript" src="scripts/StarRating.js"></script>
 
   <script type="text/javascript">
   // <![CDATA[
-      Ext.onReady(function() {
-          
-          //------------------------------------------------------------
-          // Example1
-          // config options - resetable and splitCount
-          // custom events - change and reset
-          //------------------------------------------------------------          
-          var rating = new Ext.ux.StarRating('rating-section1', {
+      Ext.onReady(function() {        
+          new Ext.ux.StarRating({
+		      renderTo : 'rating-section1',
               resetable : true,
 			  splitCount : 2
-          });
-          rating.on('change', function(obj, value) {
-		      if(typeof console != 'undefined') {
-                  console.log(obj);
-				  console.log('value: ' + value);
-			  }
-          });
-          rating.on('reset', function() {
-		      if(typeof console != 'undefined') {
-                  console.log('Reset!');
-			  }             
-          });
-
-          //------------------------------------------------------------
-          // Example2
-          // config options - disabled and defaultSelectedIndex
-          //------------------------------------------------------------
-		  new Ext.ux.StarRating('rating-section2', {
-		      disabled : true,
-		      defaultSelectedIndex : 6
-		  });
-          
+          });         
       });
   // ]]>
   </script>
@@ -58,21 +32,10 @@
     <input type="radio" name="rating1" value="3" title="Average" />
     <input type="radio" name="rating1" value="3.5" title="Good" />
     <input type="radio" name="rating1" value="4" title="Good" />
-    <input type="radio" name="rating1" value="4.5" title="Perfect" />
-    <input type="radio" name="rating1" value="5" title="Perfect" />
-  </div>
-
-  <div id="rating-section2" class="example-wrap">
-    <input type="radio" name="rating2" value="1" title="Very poor" />
-    <input type="radio" name="rating2" value="2" title="Very poor" />
-    <input type="radio" name="rating2" value="3" title="Not too bad" />
-    <input type="radio" name="rating2" value="4" title="Not too bad" />
-    <input type="radio" name="rating2" value="5" title="Average" />
-    <input type="radio" name="rating2" value="6" title="Average" />
-    <input type="radio" name="rating2" value="7" title="Good" />
-    <input type="radio" name="rating2" value="8" title="Good" />
-    <input type="radio" name="rating2" value="9" title="Perfect" />
-    <input type="radio" name="rating2" value="10" title="Perfect" />
+    <input type="radio" name="rating1" value="4.5" title="Very Good" />
+    <input type="radio" name="rating1" value="5" title="Very Good" />
+    <input type="radio" name="rating1" value="5.5" title="Perfect" />
+    <input type="radio" name="rating1" value="6" title="Perfect" />
   </div>
 
 </body>
