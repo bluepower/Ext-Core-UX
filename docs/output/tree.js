@@ -13,6 +13,8 @@
                 {"href":"output/Ext.ux.MorphList.html","text":"MorphList","id":"Ext.ux.MorphList","isClass":true,"iconCls":"icon-cls","cls":"cls","leaf":true}
 				,
                 {"href":"output/Ext.ux.ShowcaseList.html","text":"ShowcaseList","id":"Ext.ux.ShowcaseList","isClass":true,"iconCls":"icon-cls","cls":"cls","leaf":true}
+				,
+                {"href":"output/Ext.ux.StarRating.html","text":"StarRating","id":"Ext.ux.StarRating","isClass":true,"iconCls":"icon-cls","cls":"cls","leaf":true}
 				]}
 				]}
 				]};
@@ -29,5 +31,7 @@
 			"Ext.ux.MorphList":"icon-cls"
 			,
 			"Ext.ux.ShowcaseList":"icon-cls"
+			,
+			"Ext.ux.StarRating":"icon-cls"
 			};
     
