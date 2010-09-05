@@ -14,7 +14,16 @@
 		      renderTo : 'rating-section1',
               resetable : true,
 			  splitCount : 2
-          });         
+          });
+		  
+          //------------------------------------------------------------
+          // Example2
+          //------------------------------------------------------------
+		  var sr = new Ext.ux.StarRating({
+		      renderTo: 'rating-section2',
+		      disabled : true
+		  });
+		  sr.fill(3);
       });
   // ]]>
   </script>
@@ -36,6 +45,19 @@
     <input type="radio" name="rating1" value="5" title="Very Good" />
     <input type="radio" name="rating1" value="5.5" title="Perfect" />
     <input type="radio" name="rating1" value="6" title="Perfect" />
+  </div>
+
+  <div id="rating-section2" class="example-wrap">
+    <input type="radio" name="rating2" value="1" title="Very poor" />
+    <input type="radio" name="rating2" value="2" title="Very poor" />
+    <input type="radio" name="rating2" value="3" title="Not too bad" />
+    <input type="radio" name="rating2" value="4" title="Not too bad" />
+    <input type="radio" name="rating2" value="5" title="Average" />
+    <input type="radio" name="rating2" value="6" title="Average" />
+    <input type="radio" name="rating2" value="7" title="Good" />
+    <input type="radio" name="rating2" value="8" title="Good" />
+    <input type="radio" name="rating2" value="9" title="Perfect" />
+    <input type="radio" name="rating2" value="10" title="Perfect" />
   </div>
 
 </body>

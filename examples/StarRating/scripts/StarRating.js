@@ -94,6 +94,7 @@ Ext.ux.StarRating = Ext.extend(Ext.util.Observable, {
             /**
              * @event reset
              * Fires when star rating item is reset
+			 * @param {Ext.ux.StarRating} this
              */                
             'reset'
         );
@@ -178,7 +179,7 @@ Ext.ux.StarRating = Ext.extend(Ext.util.Observable, {
 
             this.resetEl.on('click', function() {
                 this.select(-1);
-                this.fireEvent('reset');
+                this.fireEvent('reset', this);
             }, this);
         }
 
@@ -283,7 +284,9 @@ Ext.ux.StarRating = Ext.extend(Ext.util.Observable, {
     },
 
     /**
-     * @private
+	 * Fill stars according to the selected index number
+     * @param {Number} index The selected index to fill
+	 * @param {String} flag (optional) If not null will show both old star and new hover star
      */
     fill : function(index, flag) {
         var addCls, removeCls;
