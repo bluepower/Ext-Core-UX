@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Ext StarRating by Niko Ni</title>
+  <link type="text/css" rel="stylesheet" href="styles/StarRating.css" />
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/ext-core/3.1.0/ext-core.js"></script>
+  <script type="text/javascript" src="scripts/StarRating.js"></script>
+
+  <style type="text/css">
+      .ux-rating-reset { margin: 3px 2px 0 0; }
+      .ux-rating-star, .ux-rating-star a { width: 25px;height: 24px; }
+      .ux-rating-reset a, .ux-rating-star a { background-image: url(images/big-rating-sprites.gif); }  
+      .ux-rating-reset a { background-position: -25px 0; }
+      .ux-rating-star-hover a { background-position: 0 -48px; }
+      .ux-rating-star-on a { background-position: 0 -24px; }
+	  .ux-rating-reset-hover a { background-position: -25px -16px; }
+  </style>
+
+  <script type="text/javascript">
+  // <![CDATA[
+      Ext.onReady(function() {        
+          new Ext.ux.StarRating({
+		      renderTo : 'rating-section1',
+              resetable : true,
+			  starWidth : 28,
+			  defaultSelectedIndex : 6
+          });
+
+          new Ext.ux.StarRating({
+		      renderTo : 'rating-section2',
+			  starWidth : 28,
+			  defaultSelectedIndex : 2
+          });
+      });
+  // ]]>
+  </script>
+  
+</head>
+
+<body>
+
+  <div id="rating-section1" class="example-wrap">
+    <input type="radio" name="rating1" value="1" title="1 point" />
+    <input type="radio" name="rating1" value="2" title="2 point" />
+    <input type="radio" name="rating1" value="3" title="3 point" />
+    <input type="radio" name="rating1" value="4" title="4 point" />
+    <input type="radio" name="rating1" value="5" title="5 point" />
+    <input type="radio" name="rating1" value="6" title="6 point" />
+    <input type="radio" name="rating1" value="7" title="7 point" />
+    <input type="radio" name="rating1" value="8" title="8 point" />
+    <input type="radio" name="rating1" value="9" title="9 point" />
+    <input type="radio" name="rating1" value="10" title="10 point" />
+  </div>
+
+  <div id="rating-section2" class="example-wrap">
+    <input type="radio" name="rating2" value="1" title="1 point" />
+    <input type="radio" name="rating2" value="2" title="2 point" />
+    <input type="radio" name="rating2" value="3" title="3 point" />
+    <input type="radio" name="rating2" value="4" title="4 point" />
+    <input type="radio" name="rating2" value="5" title="5 point" />
+  </div>
+
+</body>
+</html>

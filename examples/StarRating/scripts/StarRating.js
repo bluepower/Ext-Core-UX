@@ -68,6 +68,11 @@ Ext.ux.StarRating = Ext.extend(Ext.util.Observable, {
      */
     defaultSelectedIndex : -1,
 
+	/**
+	 * @cfg {Number} starWidth The width of star
+	 */
+	starWidth : 16,
+
     //------------------------------------------------------------
     // class constructor
     //------------------------------------------------------------
@@ -116,7 +121,6 @@ Ext.ux.StarRating = Ext.extend(Ext.util.Observable, {
         this.titles = [];
         this.stars = [];
         this.radios = this.el.select('input[type=radio]');
-        this.starWidth = 16;
         this.currSelectedIndex = -1;
         this.hoverState = false;
 
