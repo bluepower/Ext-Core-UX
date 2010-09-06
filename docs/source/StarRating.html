@@ -144,15 +144,18 @@ Ext.ux.StarRating = Ext.extend(Ext.util.Observable, {
      */
     initMarkup : function() {        
         // rating container
-        this.containerEl = this.el.createChild({
+        this.wrapEl = this.el.createChild({
             tag : 'div',
             cls : 'ux-rating-container clearfix'
         });
+		this.containerEl = this.wrapEl.createChild({
+			tag : 'ul'
+		});
 
         // reset element
         if(this.resetable) {
             this.resetEl = this.containerEl.createChild({
-                tag : 'div',
+                tag : 'li',
                 cls : 'ux-rating-reset',
                 children : [{
                     tag : 'a',
@@ -167,7 +170,7 @@ Ext.ux.StarRating = Ext.extend(Ext.util.Observable, {
         this.radios.remove();        
 
         // hidden input
-        this.input = this.containerEl.createChild({
+        this.input = this.wrapEl.createChild({
             tag : 'input',
             type : 'hidden',
             value : ''
@@ -228,7 +231,7 @@ Ext.ux.StarRating = Ext.extend(Ext.util.Observable, {
         }
 
         starEl = this.containerEl.createChild({
-            tag : 'div',
+            tag : 'li',
             cls : 'ux-rating-star'
         });
         starLinkEl = starEl.createChild({
@@ -323,7 +326,7 @@ Ext.ux.StarRating = Ext.extend(Ext.util.Observable, {
                 }
             });
         } else {
-            this.containerEl.select('div.ux-rating-star').removeClass([removeCls, addCls]);
+            this.containerEl.select('.ux-rating-star').removeClass([removeCls, addCls]);
         }
     },    
 
@@ -347,15 +350,15 @@ Ext.ux.StarRating = Ext.extend(Ext.util.Observable, {
             mouseover : this.onStarOver,
             mouseout : this.onStarOut,
             scope : this,
-            delegate : 'div.ux-rating-star'
+            delegate : '.ux-rating-star'
         };
 
         if(isEnable) {
-            this.containerEl.removeClass('ux-rating-disabled');
-            this.containerEl.on(eventsConfig);
+            this.wrapEl.removeClass('ux-rating-disabled');
+            this.wrapEl.on(eventsConfig);
         } else {
-            this.containerEl.addClass('ux-rating-disabled');
-            this.containerEl.un(eventsConfig);
+            this.wrapEl.addClass('ux-rating-disabled');
+            this.wrapEl.un(eventsConfig);
         }
     }
 });  // end of Ext.ux.StarRating</pre>    
