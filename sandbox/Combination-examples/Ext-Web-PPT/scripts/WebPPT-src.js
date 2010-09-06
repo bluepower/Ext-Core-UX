@@ -126,7 +126,10 @@ App.WebPPT = function(config) {
 		App.rootFolder = firstNodeItem.folder;
 
 		// load default slide
-		Ext.getCmp('content').load(App.rootFolder + '/' + firstNodeItem.filename);
+		Ext.getCmp('content').load({
+			url: App.rootFolder + '/' + firstNodeItem.filename,
+			scripts: true
+		});
 
 		// whether to exec the callback config
 		if(typeof fnCallback == 'function') {
@@ -173,7 +176,10 @@ Ext.extend(App.WebPPT, Ext.Viewport, {
 			var idx = node.parentNode.indexOf(node);
 			var folderName = node.parentNode.attributes.folder;
 			var page = String.format('{0}/{1}', folderName, node.attributes.filename);
-			content.load(page);
+			content.load({
+				url: page,
+				scripts: true
+			});
 
 			var mth = node.attributes.exampleUrl ? 'enable' : 'disable';
 			Ext.getCmp('launchExampleBtn')[mth]();

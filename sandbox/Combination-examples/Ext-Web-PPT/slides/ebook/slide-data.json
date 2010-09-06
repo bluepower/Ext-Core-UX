@@ -1,0 +1,6 @@
+[
+	{href: '#', id: 'first', text: '电子书', folder: 'slides/ebook', filename: '0-0/default-slide.html', children: [
+		{text: 'High Performance JavaScript', leaf: true, filename: '0-1/1.html', exampleUrl: 'http://www.amazon.com/gp/product/059680279X'},
+		{text: 'Even Faster Web Sites', leaf: true, filename: '0-2/2.html'}
+	]}
+]
