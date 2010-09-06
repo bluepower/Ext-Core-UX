@@ -38,7 +38,10 @@
 							nodePath = tp.getNodeById(nodeId).getPath(),
                             slidePath = App.rootFolder + '/' + nodeItem.filename;
 
-                        content.load(slidePath);
+                        content.load({
+							url: slidePath,
+							scripts: true
+						});
 						tp.selectPath(nodePath);
                     });
                 }
