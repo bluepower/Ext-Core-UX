@@ -30,6 +30,7 @@ Ext.ns('Ext.ux');
  * @extends-ext Ext.util.Observable
  * @author Niko Ni (bluepspower@163.com)
  * @demo http://cz9908.com/showcase/?item=star-rating&p=1
+ * @thumbnail http://cz9908.com/thumb/?item=star-rating
  * @version v0.9
  * @create 2009-06-15
  * @update 2010-09-03

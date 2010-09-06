@@ -232,7 +232,7 @@ Ext.ux.ShowcaseList = Ext.extend(Ext.util.Observable, {
 		this.ct.on('click', function(ev, t) {
 			var item = Ext.fly(ev.getTarget('dd', 5)),
 				title = ev.getTarget('h2', 3);
-			if(!item.is('dd')) {
+			if(item && !item.is('dd')) {
 				item = item.up('dd');
 			}
 

@@ -30,6 +30,7 @@ Ext.ns('Ext.ux');
  * @singleton
  * @author Niko Ni (bluepspower@163.com)
  * @demo http://cz9908.com/showcase/?item=errorlist&p=1
+ * @thumbnail http://cz9908.com/thumb/?item=errorlist
  * @version v0.2
  * @create 2010-02-06
  * @update 2010-02-09
