@@ -1,0 +1,7 @@
+[
+	{href: '#', id: 'first', text: '自我介绍', folder: 'slides/niko-intro', filename: '0-0/default-slide.html', children: [
+		{text: '综合能力', leaf: true, filename: '0-1/1.html', exampleUrl: 'http://url'},
+		{text: '国际化', leaf: true, filename: '0-2/2.html'},
+		{text: '职业规划', leaf: true, filename: '0-3/3.html'}
+	]}
+]
