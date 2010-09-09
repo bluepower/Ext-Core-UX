@@ -143,7 +143,7 @@ App.WebPPT = function(config) {
 	tp.expandAll();
 
 	// for keydown events
-	Ext.get(document).on('keydown', function(e) {
+	Ext.getDoc().on('keydown', function(e) {
 		var k = e.getKey();
 		switch(k) {
 			case e.DOWN:
