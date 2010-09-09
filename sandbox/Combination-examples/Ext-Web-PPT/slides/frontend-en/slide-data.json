@@ -17,7 +17,7 @@
 		{text: 'Web Sniffer Tools', leaf: true, filename: '0-15/web-sniffer.html'},
 		{text: 'JavaScript Unit Test', leaf: true, filename: '0-16/js-unit-test.html'},
 		{text: 'JavaScript Type Conversion', leaf: true, filename: '0-17/js-types.html'},
-		{text: 'Load js/css on-demand', leaf: true, filename: '0-18'/lazyload.html},
+		{text: 'Load js/css on-demand', leaf: true, filename: '0-18/lazyload.html'},
 		{text: 'Frontend Security', leaf: true, filename: '0-19/security.html'}
 	]}
 ]
