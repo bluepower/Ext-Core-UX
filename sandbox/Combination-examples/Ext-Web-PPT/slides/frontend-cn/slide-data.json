@@ -1,5 +1,5 @@
 [
-	{href: '#', id: 'first', text: 'Web前端开发', folder: 'slides/frontend-cn', filename: '0-0/default-slide.html', children: [
+	{href: '#', id: 'first', text: 'Web前端开发', folder: 'slides/frontend-cn', children: [
 		{text: '跨域相关', leaf: true, filename: '0-1/1.html'},
 		{text: '前端开发书籍', leaf: true, filename: '0-2/2.html'}
 	]}

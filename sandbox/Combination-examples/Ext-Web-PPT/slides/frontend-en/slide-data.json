@@ -1,5 +1,5 @@
 [
-	{href: '#', id: 'first', text: 'Front-end', folder: 'slides/frontend-en', filename: '0-0/default-slide.html', children: [
+	{href: '#', id: 'first', text: 'Front-end', folder: 'slides/frontend-en', children: [
 		{text: 'About cross domain', leaf: true, filename: '0-1/about-cross-domain.html'},
 		{text: 'HTTP statusCode + readyState', leaf: true, filename: '0-2/http-status-readystate.html'},
 		{text: 'Steps to write raw Ajax', leaf: true, filename: '0-3/raw-ajax.html'},

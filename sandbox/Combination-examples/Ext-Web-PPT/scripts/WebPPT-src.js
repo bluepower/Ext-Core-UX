@@ -1,15 +1,15 @@
 // namespace
 Ext.ns('App');
 
-App.rootFolder = '';
+//App.rootFolder = '';
 App.arrItems = [];
 
 /*!
  * @class App.WebPPT
  * @author Niko Ni (bluepspower@163.com)
- * @version v0.2
+ * @version v0.3
  * @create 2010-08-25
- * @update 2010-09-02
+ * @update 2010-09-20
  */
 App.WebPPT = function(config) {
 	Ext.BLANK_IMAGE_URL = 'images/s.gif';
@@ -123,11 +123,12 @@ App.WebPPT = function(config) {
 		var firstNodeItem = tp.root.item(0).attributes;
 
 		// fetch root folder
-		App.rootFolder = firstNodeItem.folder;
+		//App.rootFolder = firstNodeItem.folder;
 
 		// load default slide
 		Ext.getCmp('content').load({
-			url: App.rootFolder + '/' + firstNodeItem.filename,
+			//url: App.rootFolder + '/' + firstNodeItem.filename,
+			url: config.rootSlide,
 			scripts: true
 		});
 

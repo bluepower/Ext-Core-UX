@@ -1,5 +1,5 @@
 [
-	{href: '#', id: 'about-me', text: '我的亮点', folder: 'slides/niko-intro', filename: '0-0/default-slide.html', children: [
+	{href: '#', id: 'about-me', text: '我的亮点', folder: 'slides/niko-intro', children: [
 		{text: '自我介绍', leaf: true, filename: '0-1/intro.html'},
 		{text: '作品一览', leaf: true, filename: '0-2/demo.html', exampleUrl: 'http://cz9908.com/showcase/?item=showcase-list'}
 	]},
