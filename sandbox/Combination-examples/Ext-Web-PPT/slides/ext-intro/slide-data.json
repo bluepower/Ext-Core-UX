@@ -1,5 +1,5 @@
 [
-	{href: '#', id: 'first', text: 'Introduction', folder: 'slides/ext-intro', children: [
+	{href: '#', id: 'first', text: 'ExtJS Introduction', folder: 'slides/ext-intro', children: [
 		{text: 'What is Ext?', leaf: true, filename: '0-1/what-is-ext.html', exampleUrl: 'http://extjs.com'},
 		{text: 'Statistics', leaf: true, filename: '0-2/statistics.html'},
 		{text: 'History', leaf: true, filename: '0-3/history.html'},

@@ -1,6 +1,7 @@
 [
-	{href: '#', id: 'first', text: '电子书', folder: 'slides/ebook', children: [
+	{href: '#', id: 'first', text: 'Ebooks', folder: 'slides/ebook', children: [
 		{text: 'High Performance JavaScript', leaf: true, filename: '0-1/1.html', exampleUrl: 'http://www.amazon.com/gp/product/059680279X'},
-		{text: 'Even Faster Web Sites', leaf: true, filename: '0-2/2.html'}
+		{text: 'Even Faster Web Sites', leaf: true, filename: '0-2/2.html'},
+		{text: 'Test-Driven JavaScript Development', leaf: true, filename: '0-3/3.html', exampleUrl: 'http://www.amazon.com/gp/product/0321683919'}
 	]}
 ]
