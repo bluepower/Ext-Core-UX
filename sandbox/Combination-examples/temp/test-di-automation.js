@@ -68,9 +68,9 @@ Ext.onReady(function(){
 
     var tab2 = new Ext.FormPanel({
         labelAlign: 'top',
-        title: 'DI Automation',
+        title: 'Welcome, ******',
         bodyStyle:'padding:5px',
-        width: 600,
+        //width: 600,
         items: [
 		{
                         xtype : 'compositefield',
